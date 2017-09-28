@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-08-15" view-index="0" gantt-divider-location="582" resource-divider-location="300" version="2.8.5" locale="pt_BR">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nome" width="343" order="0"/>
+        <field id="tpd4" name="Data inicial" width="126" order="1"/>
+        <field id="tpd5" name="Data final" width="94" order="2"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nome" width="206" order="0"/>
+        <field id="1" name="Função" width="90" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Levantamento de Requisitos" color="#8cb6ce" meeting="false" start="2017-08-08" duration="5" complete="0" expand="true">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" name="Análise de Requisitos" color="#8cb6ce" meeting="false" start="2017-08-15" duration="4" complete="0" expand="true">
+            <depend id="2" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="2" name="Fazer Diagramas de Requisitos" color="#8cb6ce" meeting="false" start="2017-08-21" duration="9" complete="0" expand="true"/>
+        <task id="26" name="Preparação do Diagrama de Caso de Uso (Nível de Análise)" color="#8cb6ce" meeting="false" start="2017-08-21" duration="3" complete="0" expand="true">
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="27" name="Preparação do Diagrama de Sequência (Nível de Análise)" color="#8cb6ce" meeting="false" start="2017-08-24" duration="3" complete="0" expand="true">
+            <depend id="28" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="28" name="Preparação do Diagrama de Classe (Nível de Análise)" color="#8cb6ce" meeting="false" start="2017-08-29" duration="2" complete="0" expand="true"/>
+        <task id="3" name="Gerencia de artefatos pelo Git" color="#8cb6ce" meeting="false" start="2017-09-01" duration="21" complete="0" expand="true"/>
+        <task id="4" name="Sincronização do repositorio no BitBucket" color="#8cb6ce" meeting="false" start="2017-09-01" duration="21" complete="0" expand="true"/>
+        <task id="5" name="Criação do diagrama no GanttProject" color="#8cb6ce" meeting="false" start="2017-09-01" duration="21" complete="0" expand="true"/>
+        <task id="9" name="Criar esquema de banco de dados" color="#8cb6ce" meeting="false" start="2017-09-15" duration="15" complete="0" expand="true">
+            <depend id="17" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" name="Atualização dos Diagramas a nível de projeto" color="#8cb6ce" meeting="false" start="2017-09-25" duration="15" complete="0" expand="true"/>
+        <task id="15" name="Interface do sistema com validação de campos" color="#8cb6ce" meeting="false" start="2017-10-02" duration="7" complete="0" expand="true"/>
+        <task id="31" name="Testes de Interface" color="#8cb6ce" meeting="false" start="2017-10-05" duration="5" complete="0" expand="true"/>
+        <task id="16" name="Conexão com o banco de dados" color="#8cb6ce" meeting="false" start="2017-10-05" duration="8" complete="0" expand="true"/>
+        <task id="34" name="Testes de Conexão com o Banco de Dados" color="#8cb6ce" meeting="false" start="2017-10-05" duration="10" complete="0" expand="true"/>
+        <task id="17" name="Implementação do banco de dados" color="#8cb6ce" meeting="false" start="2017-10-06" duration="7" complete="0" expand="true"/>
+        <task id="37" name="Testes no Banco de Dados" color="#8cb6ce" meeting="false" start="2017-10-05" duration="5" complete="0" expand="true"/>
+        <task id="18" name="Criar controle de acesso" color="#8cb6ce" meeting="false" start="2017-10-09" duration="8" complete="0" expand="true"/>
+        <task id="43" name="Testes no Controle de Acesso" color="#8cb6ce" meeting="false" start="2017-10-09" duration="8" complete="0" expand="true"/>
+        <task id="10" name="PRIMEIRA PARTE DA IMPLEMENTAÇÃO" color="#8cb6ce" meeting="false" start="2017-10-19" duration="2" complete="0" expand="true"/>
+        <task id="19" name="Criação dos Módulos de Cadastro (3)" color="#8cb6ce" meeting="false" start="2017-10-23" duration="14" complete="0" expand="true"/>
+        <task id="45" name="Testes nos Módulos de Cadastro" color="#8cb6ce" meeting="false" start="2017-10-23" duration="14" complete="0" expand="true"/>
+        <task id="20" name="Geração dos Relatórios (3)" color="#8cb6ce" meeting="false" start="2017-10-23" duration="14" complete="0" expand="true"/>
+        <task id="47" name="Testes na Geração de Relatórios" color="#8cb6ce" meeting="false" start="2017-11-06" duration="4" complete="0" expand="true"/>
+        <task id="13" name="Interface" color="#8cb6ce" meeting="false" start="2017-10-25" duration="14" complete="0" expand="true"/>
+        <task id="50" name="Testes da Interface" color="#8cb6ce" meeting="false" start="2017-11-01" duration="9" complete="0" expand="true"/>
+        <task id="11" name="SEGUNDA PARTE DA IMPLEMENTAÇÃO" color="#8cb6ce" meeting="false" start="2017-11-16" duration="2" complete="0" expand="true">
+            <depend id="14" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" name="Teste de erros" color="#8cb6ce" meeting="false" start="2017-11-20" duration="3" complete="0" expand="true"/>
+        <task id="14" name="Teste do sistema em si" color="#8cb6ce" meeting="false" start="2017-11-20" duration="3" complete="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Luiz Antonio" function="Default:1" contacts="gonsalvesjr@gmail.com" phone="32 999649123">
+            <rate name="standard" value="80"/>
+        </resource>
+        <resource id="1" name="Luiz Manoel" function="SoftwareDevelopment:2" contacts="luizmanoeldossantos@gmail.com" phone="32 984001185">
+            <rate name="standard" value="80"/>
+        </resource>
+        <resource id="2" name="Rodolfo Chagas M. Nascimento" function="SoftwareDevelopment:2" contacts="rodolfo__nascimento@hotmail.com" phone="32 999183003">
+            <rate name="standard" value="80"/>
+        </resource>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="2" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="26" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="5" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="31" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="16" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="34" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="17" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="37" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="45" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="50" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="1" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="2" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="27" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="4" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="5" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="31" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="16" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="34" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="37" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="19" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="45" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="20" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="50" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="1" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="2" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="28" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="4" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="5" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="31" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="16" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="34" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="17" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="37" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="19" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="45" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="20" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="47" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="50" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>

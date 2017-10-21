@@ -38,7 +38,7 @@ public class Operador extends Pessoa {
     
     }
     
-    public Operador(String nome, int idade, char sexo, String endereco, String cpf, String telefone, String email){
+    public Operador(String nome, int idade, char sexo, String endereco, String cpf, String telefone, String email, double salario){
         super.setNome(nome);
         super.setIdade(idade);
         super.setSexo(sexo);
@@ -47,7 +47,7 @@ public class Operador extends Pessoa {
         super.setTelefone(telefone);
         super.setEmail(email);
         
-        this.salario = 0;
+        this.salario = salario;
         
     
     

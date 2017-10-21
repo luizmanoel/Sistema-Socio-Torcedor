@@ -7,14 +7,14 @@ package sistemast;
 
 /**
  *
- * @author antonio
+ * @author Luiz Manoel
  */
-public class TelaAdmin extends javax.swing.JFrame {
+public class TelaFuncionario extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaAdmin
+     * Creates new form TelaFuncionario
      */
-    public TelaAdmin() {
+    public TelaFuncionario() {
         initComponents();
     }
 
@@ -34,15 +34,8 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -55,9 +48,9 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Contabilidade");
+        jMenu2.setText("Financeiro");
 
-        jMenuItem2.setText("Relatório Financeiro");
+        jMenuItem2.setText("Pagamento de Mensalidade");
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -67,40 +60,18 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenuItem4.setText("Listar");
         jMenu3.add(jMenuItem4);
 
-        jMenuItem9.setText("Cadastrar");
-        jMenu3.add(jMenuItem9);
-
-        jMenuItem10.setText("Remover");
-        jMenu3.add(jMenuItem10);
-
-        jMenuItem11.setText("Alterar Dados");
-        jMenu3.add(jMenuItem11);
-
-        jMenuItem12.setText("Delegar Cargos");
-        jMenu3.add(jMenuItem12);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Funcionario");
-
-        jMenuItem3.setText("Listar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem6.setText("Checar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem3);
+        jMenu3.add(jMenuItem6);
 
-        jMenuItem6.setText("Cadastrar");
-        jMenu4.add(jMenuItem6);
+        jMenuItem7.setText("Buscar");
+        jMenu3.add(jMenuItem7);
 
-        jMenuItem7.setText("Alterar ");
-        jMenu4.add(jMenuItem7);
-
-        jMenuItem8.setText("Remover");
-        jMenu4.add(jMenuItem8);
-
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Opcões");
 
@@ -115,19 +86,19 @@ public class TelaAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,20 +117,20 @@ public class TelaAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaAdmin().setVisible(true);
+                new TelaFuncionario().setVisible(true);
             }
         });
     }
@@ -168,20 +139,13 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

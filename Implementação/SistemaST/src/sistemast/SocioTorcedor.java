@@ -12,6 +12,20 @@ package sistemast;
 public class SocioTorcedor extends Pessoa {
 
     /**
+     * @return the categoria
+     */
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    /**
+     * @param categoria the categoria to set
+     */
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    /**
      * @return the codigoSt
      */
     public int getCodigoSt() {
@@ -27,7 +41,8 @@ public class SocioTorcedor extends Pessoa {
     
     
     private int codigoSt;
-    //private Categoria categoria; //Necessaria implementação
+    private Categoria categoria; //Necessaria implementação
+    
     
     
     public SocioTorcedor(){
@@ -37,7 +52,7 @@ public class SocioTorcedor extends Pessoa {
     
     }
     
-    public SocioTorcedor(String nome, int idade, char sexo, String endereco, String cpf, String telefone, String email){
+    public SocioTorcedor(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email){
         super.setNome(nome);
         super.setIdade(idade);
         super.setSexo(sexo);

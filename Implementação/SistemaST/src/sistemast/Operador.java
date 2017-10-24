@@ -13,21 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class Operador extends Pessoa {
 
-    /**
-     * @return the salario
-     */
-    public double getSalario() {
-        return salario;
-    }
-
-    /**
-     * @param salario the salario to set
-     */
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
     
     private double salario;
+    private String senha;
     
     public Operador(){
         super();
@@ -38,7 +26,7 @@ public class Operador extends Pessoa {
     
     }
     
-    public Operador(String nome, int idade, char sexo, String endereco, String cpf, String telefone, String email, double salario){
+    public Operador(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, String senha){
         super.setNome(nome);
         super.setIdade(idade);
         super.setSexo(sexo);
@@ -48,10 +36,20 @@ public class Operador extends Pessoa {
         super.setEmail(email);
         
         this.salario = salario;
+        this.senha = senha;
         
     
     
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public void listarSt(){ //Dependente do BD
     
@@ -94,6 +92,34 @@ public class Operador extends Pessoa {
         return d1;
     
     
+    }
+    
+    /**
+     * @return the salario
+     */
+    public double getSalario() {
+        return salario;
+    }
+
+    /**
+     * @param salario the salario to set
+     */
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     

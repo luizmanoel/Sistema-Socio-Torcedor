@@ -12,8 +12,8 @@ package sistemast;
 public class Administrador extends Operador{
     private int codigoAdministrador;
     
-    public Administrador(String nome, int idade, char sexo, String endereco, String cpf, String telefone, String email, double salario, int codigoAdministrador){
-        super(nome, idade, sexo, endereco, cpf, telefone, email, salario);
+    public Administrador(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, int codigoAdministrador, String senha){
+        super(nome, idade, sexo, endereco, cpf, telefone, email, salario, senha);
         this.codigoAdministrador = codigoAdministrador;
     }
     

@@ -3,11 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/Conexao.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/SocioTorcedorDAO.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Endereco.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/CategoriaDAO.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Categoria.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Administrador.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/PagamentoDAO.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Funcionario.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/AdministradorDAO.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/FuncionarioDAO.java</file>
             <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Pessoa.java</file>
             <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/SistemaST.java</file>
             <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/SocioTorcedor.java</file>
             <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Operador.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/TelaAdmin.java</file>
+            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/InterfaceDAO.java</file>
         </group>
     </open-files>
 </project-private>

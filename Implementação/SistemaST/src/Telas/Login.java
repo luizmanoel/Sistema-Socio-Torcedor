@@ -47,6 +47,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Senha");
 
         jButton1.setText("Entrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setText("Autenticação");
@@ -100,6 +105,31 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(validacao()){//Se senha e login não estão vazios
+            //Buscar no banco e etc...
+        
+        
+        
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    private boolean validacao(){
+        if(!this.jTextField1.getText().equals("")){
+            char [] pass = this.jPasswordField1.getPassword();
+            if(pass.length > 0){
+                //System.out.println("Pato");
+                return true;
+            
+            }
+
+        }
+        return false;
+    
+    
+    }
     /**
      * @param args the command line arguments
      */

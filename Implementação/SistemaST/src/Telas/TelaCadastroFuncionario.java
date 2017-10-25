@@ -6,6 +6,7 @@
 package Telas;
 
 import dao.FuncionarioDAO;
+import sistemast.Endereco;
 import sistemast.Funcionario;
 
 /**
@@ -254,6 +255,17 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         func.setSalario(Double.parseDouble(jTextSalario.getText()));
         func.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
         func.setTelefone(jTextTelefone.getText());
+        
+        //Consertar
+        Endereco end1 = new Endereco();
+        end1.setEndNum("66");
+        end1.setEndRua("do 66");
+        end1.setEndCidade("Cidade 66");
+        end1.setEndEstado("Massachussets");
+        func.setEndereco(end1);
+        func.setSenha("Vocenaosabenemeu");
+        func.setId(66);
+        ////
         FuncionarioDAO db = new FuncionarioDAO();
         
         db.adiciona(func);

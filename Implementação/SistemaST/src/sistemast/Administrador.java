@@ -5,11 +5,15 @@
  */
 package sistemast;
 
+import Telas.TelaCadastroST;
+import java.util.ArrayList;
+
 /**
  *
  * @author Luiz Manoel
  */
 public class Administrador extends Operador{
+    public ArrayList<SocioTorcedor> a;
     private int codigoAdministrador;
     
     public Administrador(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, int codigoAdministrador, String senha){
@@ -26,7 +30,12 @@ public class Administrador extends Operador{
         
     }
     
-    public void cadastrarST(){
+    public void cadastrarST(SocioTorcedor st){  
+        TelaCadastroST tela = new TelaCadastroST(st);
+        tela.setVisible(true);
+        
+        //jogar no banco;
+        
         
     }
     

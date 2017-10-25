@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemast;
+package Telas;
+
+import sistemast.SocioTorcedor;
 
 /**
  *
  * @author antonio
  */
 public class TelaAdmin extends javax.swing.JFrame {
-
+    SocioTorcedor st;
+    
+    
     /**
      * Creates new form TelaAdmin
      */
@@ -27,20 +31,21 @@ public class TelaAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        MeusDados = new javax.swing.JMenuItem();
+        relatorioFinanceiro = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        listarSocio = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        cadastrarSocio = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        cadastrarFuncionario = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -48,38 +53,46 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Telas/background.jpg"))); // NOI18N
+
         jMenu1.setText("Inicio");
 
-        jMenuItem1.setText("Meus Dados");
-        jMenu1.add(jMenuItem1);
+        MeusDados.setText("Meus Dados");
+        jMenu1.add(MeusDados);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Contabilidade");
+        relatorioFinanceiro.setText("Contabilidade");
 
         jMenuItem2.setText("Relatório Financeiro");
-        jMenu2.add(jMenuItem2);
+        relatorioFinanceiro.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(relatorioFinanceiro);
 
-        jMenu3.setText("Socio");
+        listarSocio.setText("Socio");
 
         jMenuItem4.setText("Listar");
-        jMenu3.add(jMenuItem4);
+        listarSocio.add(jMenuItem4);
 
-        jMenuItem9.setText("Cadastrar");
-        jMenu3.add(jMenuItem9);
+        cadastrarSocio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        cadastrarSocio.setText("Cadastrar");
+        cadastrarSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarSocioActionPerformed(evt);
+            }
+        });
+        listarSocio.add(cadastrarSocio);
 
         jMenuItem10.setText("Remover");
-        jMenu3.add(jMenuItem10);
+        listarSocio.add(jMenuItem10);
 
         jMenuItem11.setText("Alterar Dados");
-        jMenu3.add(jMenuItem11);
+        listarSocio.add(jMenuItem11);
 
         jMenuItem12.setText("Delegar Cargos");
-        jMenu3.add(jMenuItem12);
+        listarSocio.add(jMenuItem12);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(listarSocio);
 
         jMenu4.setText("Funcionario");
 
@@ -91,8 +104,13 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem3);
 
-        jMenuItem6.setText("Cadastrar");
-        jMenu4.add(jMenuItem6);
+        cadastrarFuncionario.setText("Cadastrar");
+        cadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarFuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu4.add(cadastrarFuncionario);
 
         jMenuItem7.setText("Alterar ");
         jMenu4.add(jMenuItem7);
@@ -115,11 +133,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -129,6 +147,19 @@ public class TelaAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void cadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarFuncionarioActionPerformed
+        TelaCadastroFuncionario tela = new TelaCadastroFuncionario();
+        tela.setVisible(true);
+    }//GEN-LAST:event_cadastrarFuncionarioActionPerformed
+
+    private void cadastrarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarSocioActionPerformed
+        TelaCadastroST tela = new TelaCadastroST(st);
+        tela.setVisible(true);
+    }//GEN-LAST:event_cadastrarSocioActionPerformed
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -165,13 +196,14 @@ public class TelaAdmin extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MeusDados;
+    private javax.swing.JMenuItem cadastrarFuncionario;
+    private javax.swing.JMenuItem cadastrarSocio;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
@@ -179,9 +211,9 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu listarSocio;
+    private javax.swing.JMenu relatorioFinanceiro;
     // End of variables declaration//GEN-END:variables
 }

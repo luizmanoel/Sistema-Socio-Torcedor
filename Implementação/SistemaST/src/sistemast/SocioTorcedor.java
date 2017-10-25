@@ -38,9 +38,12 @@ public class SocioTorcedor extends Pessoa {
     public void setCodigoSt(int codigoSt) {
         this.codigoSt = codigoSt;
     }
-    
-    
+
     private int codigoSt;
+
+    //private Categoria categoria; //Necessaria implementação
+
+
     private Categoria categoria; //Necessaria implementação
     
     
@@ -48,10 +51,10 @@ public class SocioTorcedor extends Pessoa {
     public SocioTorcedor(){
         super();
         this.codigoSt = 0;
-    
-    
+
     }
-    
+
+     
     public SocioTorcedor(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email){
         super.setNome(nome);
         super.setIdade(idade);
@@ -60,18 +63,13 @@ public class SocioTorcedor extends Pessoa {
         super.setCpf(cpf);
         super.setTelefone(telefone);
         super.setEmail(email);
-        
-        this.codigoSt= 0;
-        
-    
-    
+
+        this.codigoSt = 0;
+
     }
-    
-    public void pagaMensalidade(int codigoSt){//Necessário BD
-    
-    
-    
+
+    public void pagaMensalidade(int codigoSt) {//Necessário BD
+
     }
-    
-    
+
 }

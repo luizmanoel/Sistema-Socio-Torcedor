@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemast;
+package Telas;
 
 /**
  *
@@ -86,7 +86,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD:Implementação/SistemaST/src/Telas/TelaFuncionario.java
+            .addGap(0, 412, Short.MAX_VALUE)
+=======
             .addGap(0, 626, Short.MAX_VALUE)
+>>>>>>> cc57979d89e1830870d02012b89a5a8eeb1d3882:Implementação/SistemaST/src/sistemast/TelaFuncionario.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,37 +107,37 @@ public class TelaFuncionario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-////    public static void main(String args[]) {
-////        /* Set the Nimbus look and feel */
-////        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-////        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-////         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-////         */
-////        try {
-////            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-////                if ("Nimbus".equals(info.getName())) {
-////                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-////                    break;
-////                }
-////            }
-////        } catch (ClassNotFoundException ex) {
-////            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-////        } catch (InstantiationException ex) {
-////            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-////        } catch (IllegalAccessException ex) {
-////            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-////        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-////            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-////        }
-////        //</editor-fold>
-////
-////        /* Create and display the form */
-////        java.awt.EventQueue.invokeLater(new Runnable() {
-////            public void run() {
-////                new TelaFuncionario().setVisible(true);
-////            }
-////        });
-////    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaFuncionario().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;

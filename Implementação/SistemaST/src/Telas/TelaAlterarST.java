@@ -218,7 +218,6 @@ public class TelaAlterarST extends javax.swing.JFrame {
             jComboSexo.setSelectedIndex(0);
         else
             jComboSexo.setSelectedIndex(1);
-        jTextEndereco.setText(st.getEndereco());
     }
     /**
      * @param args the command line arguments

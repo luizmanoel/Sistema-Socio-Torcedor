@@ -91,12 +91,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD:Implementação/SistemaST/src/Telas/TelaFuncionario.form
           <EmptySpace min="0" pref="412" max="32767" attributes="0"/>
+=======
+          <EmptySpace min="0" pref="626" max="32767" attributes="0"/>
+>>>>>>> cc57979d89e1830870d02012b89a5a8eeb1d3882:Implementação/SistemaST/build/classes/sistemast/TelaFuncionario.form
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="428" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

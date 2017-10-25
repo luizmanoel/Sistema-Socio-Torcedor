@@ -56,14 +56,14 @@ public abstract class Pessoa {
     /**
      * @return the endereco
      */
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
     /**
      * @param endereco the endereco to set
      */
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -109,14 +109,37 @@ public abstract class Pessoa {
         this.email = email;
     }
     
+    private int id;
     private String nome;
     private int idade;
     private char sexo;
-    private String endereco;
+    private Endereco endereco;
     private String cpf;
     private String telefone;
     private String email;
     
     public Pessoa(){}
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public Pessoa convertePessoa(){
+    
+        return null;
+    
+    
+    
+    }
     
 }

@@ -12,9 +12,10 @@ package sistemast;
 public class Funcionario extends Operador{
     private String cargo;
     private int codigoFuncionario;
+    
 
-    public Funcionario(String nome, int idade, char sexo, String endereco, String cpf, String telefone, String email, double salario, String cargo, int codigoFuncionario){
-        super(nome, idade, sexo, endereco, cpf, telefone, email, salario);
+    public Funcionario(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, String cargo, int codigoFuncionario, String senha){
+        super(nome, idade, sexo, endereco, cpf, telefone, email, salario, senha);
         this.cargo = cargo;
         this.codigoFuncionario = codigoFuncionario;
     }

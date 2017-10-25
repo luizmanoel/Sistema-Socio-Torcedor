@@ -36,7 +36,6 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
         jTextCod.setText(String.valueOf(getFunc().getCodigoFuncionario()));
         jTextCpf.setText(getFunc().getCpf());
         jTextEmail.setText(getFunc().getEmail());
-        jTextEndereco.setText(getFunc().getEndereco());
         jComboIdade.setSelectedIndex(func.getIdade());      
         if(func.getSexo() == 'F'){
             jComboSexo.setSelectedIndex(0);

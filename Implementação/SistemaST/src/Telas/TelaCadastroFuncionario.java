@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import dao.FuncionarioDAO;
 import sistemast.Funcionario;
 
 /**
@@ -240,22 +241,26 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
     private void jBtEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtEnviarActionPerformed
         incluirFunc();
+        dispose();
     }//GEN-LAST:event_jBtEnviarActionPerformed
     public void incluirFunc(){
+        func = new Funcionario();
         func.setCargo(jTextCargo.getText());
         func.setCodigoFuncionario(Integer.parseInt(jTextCod.getText()));
         func.setCpf(jTextCpf.getText());
         func.setEmail(jTextEmail.getText());
-        func.setEndereco(jTextEndereco.getText());
         func.setIdade(Integer.parseInt(jComboIdade.getSelectedItem().toString()));
         func.setNome(jTextNome.getText());
         func.setSalario(Double.parseDouble(jTextSalario.getText()));
         func.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
         func.setTelefone(jTextTelefone.getText());
+        FuncionarioDAO db = new FuncionarioDAO();
+        
+        db.adiciona(func);
         
         //joga no banco
         
-        dispose();
+        
     }
     
     

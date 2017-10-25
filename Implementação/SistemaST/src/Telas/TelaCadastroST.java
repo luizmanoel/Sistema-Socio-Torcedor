@@ -218,7 +218,6 @@ public class TelaCadastroST extends javax.swing.JFrame {
         st.setIdade(Integer.parseInt(jComboIdade.getSelectedItem().toString()));
         st.setTelefone(jTextTelefone.getText());
         st.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
-        st.setEndereco(jTextEndereco.getText());
         //joga no banco
         dispose();
     }

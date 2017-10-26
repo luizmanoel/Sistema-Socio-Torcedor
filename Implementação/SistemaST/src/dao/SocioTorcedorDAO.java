@@ -229,7 +229,7 @@ public class SocioTorcedorDAO implements InterfaceDAO{
                 socio2.setCodigoSt(result.getInt("cod_st"));
                 
                 
-                
+                //Tel e email
                 
                 lista.add(socio2);//Adiciona a Lista apos o mesmo ter sido preenchido com os valores de result
             

@@ -73,7 +73,7 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Sócios Torcedores");
 
-        jBTSelect.setText("Ok");
+        jBTSelect.setText("Ver Dados");
         jBTSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTSelectActionPerformed(evt);
@@ -116,8 +116,13 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBTSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSelectActionPerformed
-       
-        
+       int x = jListSTs.getSelectedIndex();
+       SocioTorcedorDAO db = new SocioTorcedorDAO();
+            SocioTorcedor st = new SocioTorcedor();
+            ArrayList<Object> listaSTs = db.consulta(st);
+            SocioTorcedor socio = (SocioTorcedor) listaSTs.get(x);
+       TelaVerDadosST t = new TelaVerDadosST(socio);
+        t.setVisible(true);
        dispose();
     }//GEN-LAST:event_jBTSelectActionPerformed
 

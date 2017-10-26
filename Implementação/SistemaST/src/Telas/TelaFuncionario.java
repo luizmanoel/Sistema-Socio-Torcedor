@@ -106,6 +106,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenuBar1.add(listarSocio);
 
         jMenu5.setText("Opcões");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
 
         jMenuItem5.setText("Sair");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +149,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
         int ans = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Sair", JOptionPane.YES_NO_CANCEL_OPTION);//Vai sair realmente?
         
         if(ans == 0){//Se sim...
+            Login l = new Login();
+            l.setVisible(true);
+            l.setLocationRelativeTo(null);
             this.dispose();
         
         }
@@ -169,6 +177,10 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private void jMenuDelegarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuDelegarCargosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuDelegarCargosActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu5ActionPerformed
     
     
     

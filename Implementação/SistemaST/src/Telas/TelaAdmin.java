@@ -196,7 +196,9 @@ public class TelaAdmin extends javax.swing.JFrame {
         
         if(ans == 0){//Se sim...
             this.dispose();
-        
+            Login l = new Login();
+            l.setVisible(true);
+            l.setLocationRelativeTo(null);
         }
         
         

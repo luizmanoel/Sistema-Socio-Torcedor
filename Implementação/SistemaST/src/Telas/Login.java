@@ -117,16 +117,23 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(validacao()){//Se senha e login não estão vazios
             //Buscar no banco e etc...
+            //Provavelmente um objeto adm e func deverá ser passado por parametro, por conta do "meus dados"
             if(checagemLoginAdm()){
-                System.out.println("Pato2");
+                //System.out.println("Pato2");
                 //Iniciar uma tela p/ admin
                 TelaAdmin tela1 = new TelaAdmin();
                 tela1.setVisible(true);
                 this.dispose();
                 
                 
+
             }else if(checagemLoginFunc()){
                 System.out.println("Pato3");
+
+            }
+            
+            if(checagemLoginFunc()){
+                //System.out.println("Pato3");
                 //Iniciar uma tela p/ funcionario
                 TelaFuncionario tela1 = new TelaFuncionario();
                 tela1.setVisible(true);

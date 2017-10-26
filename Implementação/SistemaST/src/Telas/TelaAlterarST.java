@@ -5,6 +5,9 @@
  */
 package Telas;
 
+import dao.SocioTorcedorDAO;
+import sistemast.Categoria;
+import sistemast.Endereco;
 import sistemast.SocioTorcedor;
 
 /**
@@ -229,7 +232,10 @@ public class TelaAlterarST extends javax.swing.JFrame {
     private void jBtEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtEnviarActionPerformed
         
         if(validacao()){
-        
+            //Acesso ao BD
+            this.alterarST();
+            
+            this.dispose();
         
         
         }
@@ -257,8 +263,45 @@ public class TelaAlterarST extends javax.swing.JFrame {
             jComboSexo.setSelectedIndex(1);
     }
     
+    public void alterarST(){
+        
+                //Para testes
+        Categoria cat1 = new Categoria();
+        cat1.setBeneficios("Varios beneficios");
+        cat1.setValorMensalidade(100);
+        cat1.setCodigoCategoria(11211);
+        cat1.setNome("Categoria1");
+        st.setCategoria(cat1);
+        
+        
+        st.setCategoria(cat1);
+        
+        Endereco end1 = new Endereco();
+        end1.setEndNum(this.jTextEndNum.getText());
+        end1.setEndRua(this.jTextEndRua.getText());
+        end1.setEndCidade(this.jTextEndCidade.getText());
+        end1.setEndEstado(this.jTextEndEstado.getText());
+        st.setEndereco(end1);
+        
+        
+        st.setCpf(this.jTextCpf.getText());
+        st.setEmail(this.jTextEmail.getText());
+        st.setIdade(Integer.parseInt(this.jComboIdade.getSelectedItem().toString()));
+        st.setNome(this.jTextNome.getText());
+        st.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
+        st.setTelefone(jTextTelefone.getText());
+        
+        SocioTorcedorDAO stdao = new SocioTorcedorDAO();
+        stdao.altera(st);
     
-     private boolean validacao(){
+    
+    
+    
+    
+    }
+    
+    
+    private boolean validacao(){
         if(this.jTextCpf.getText().length() != 9){//CPF c/ 9 digitos
         
             return false;

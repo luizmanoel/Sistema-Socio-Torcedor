@@ -240,4 +240,14 @@ public class AdministradorDAO implements InterfaceDAO{
         return lista;
     }
     
+    public int controleID(){//Utilitario, p/ controle da quantidade de IDs
+        int quantid = 0;
+        
+        Administrador adm1 = new Administrador();
+        
+        quantid = this.consulta(adm1).size();
+        
+        return quantid;
+    }
+    
 }

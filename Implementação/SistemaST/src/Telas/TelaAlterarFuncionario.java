@@ -46,6 +46,59 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
         getFunc().setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
         jTextTelefone.setText(getFunc().getTelefone());
     }
+    
+    private boolean validacao(){
+        
+        //Podemos usar labels e setVisible para indicar campos c/ obrigatoriedade
+        if(this.jTextCpf.getText().length() != 9){//CPF c/ 9 digitos
+        
+            return false;
+        }
+        
+        if(this.jTextEmail.equals("")){
+        
+            return false;
+        }
+        
+        if(this.jTextNome.equals("")){
+            
+            return false;
+        }
+        
+        if(this.jTextTelefone.equals("")){
+            return false;
+        }
+        
+        
+        
+        
+        if(this.jTextEndNum.equals("")){
+        
+            return false;
+        
+        }
+        
+        if(this.jTextEndCidade.equals("")){
+            return false;
+        
+        }
+        
+        if(this.jTextEndRua.equals("")){
+            return false;
+        
+        
+        }
+        
+        if(this.jTextEndEstado.equals("")){
+            return false;
+        
+        }
+        
+        
+        return true;
+    
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -241,11 +294,12 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextEndRua, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextEndRua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextEndCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,6 +340,13 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
 
     private void jBtEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtEnviarActionPerformed
 
+        if(validacao()){
+        
+        
+        
+        }
+        
+        
     }//GEN-LAST:event_jBtEnviarActionPerformed
 
     private void jTextTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTelefoneActionPerformed

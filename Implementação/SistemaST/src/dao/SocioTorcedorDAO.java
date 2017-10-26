@@ -144,7 +144,7 @@ public class SocioTorcedorDAO implements InterfaceDAO{
             statement.setString(6, socio.getEndereco().getEndCidade());
             statement.setString(7, socio.getEndereco().getEndEstado());
             statement.setString(8, socio.getCpf());
-            statement.setString(9, String.valueOf(socio.getId()));
+            statement.setString(9, String.valueOf(socio.getId()));//Atenção a isto aqui
             
             statement.execute();
             
@@ -154,7 +154,7 @@ public class SocioTorcedorDAO implements InterfaceDAO{
             
             statement = conn.prepareStatement(sql);
             statement.setString(1, String.valueOf(socio.getCategoria().getCodigoCategoria()));
-            statement.setString(2, String.valueOf(socio.getId()));
+            statement.setString(2, String.valueOf(socio.getId()));//Atenção a isto aqui
             statement.execute();
             
             
@@ -163,14 +163,14 @@ public class SocioTorcedorDAO implements InterfaceDAO{
             sql = "UPDATE Email SET email = ? WHERE Contato_Pessoa_idPessoa = ?";
             statement = conn.prepareStatement(sql);
             statement.setString(1, socio.getEmail());
-            statement.setString(2, String.valueOf(socio.getId()));
+            statement.setString(2, String.valueOf(socio.getId()));//Atenção a isto aqui
             
             statement.execute();
             
             sql = "UPDATE Telefone SET telefone = ? WHERE Contato_Pessoa_idPessoa = ?";
             statement = conn.prepareStatement(sql);
             statement.setString(1, socio.getTelefone());
-            statement.setString(2, String.valueOf(socio.getId()));
+            statement.setString(2, String.valueOf(socio.getId()));//Atenção a isto aqui
             
             statement.execute();
             
@@ -248,6 +248,17 @@ public class SocioTorcedorDAO implements InterfaceDAO{
         
         return lista;//Por fim retornamos a lista (tipo object). Devemos converter (cast) o tipo se quisermos acessar algum valor ao receber a mesma
         
+    }
+    
+    
+    public int controleID(){//Utilitario, p/ controle da quantidade de IDs totais
+        int quantid = 0;
+        
+        SocioTorcedor st = new SocioTorcedor();
+        
+        quantid = this.consulta(st).size();
+        
+        return quantid;
     }
     
 }

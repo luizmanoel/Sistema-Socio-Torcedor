@@ -51,13 +51,14 @@ public class FuncionarioDAO implements InterfaceDAO {
 
 
             //Funcionario
-            sql = "Insert into Funcionario (senha, cod_func, salario, Pessoa_idPessoa) values (?, ?, ?, ?)";
+            sql = "Insert into Funcionario (senha, cod_func, salario, cargo, Pessoa_idPessoa) values (?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
             
             statement.setString(1, funcionario.getSenha());//Colocar senha em funcionario
             statement.setString(2, String.valueOf(funcionario.getCodigoFuncionario()));
             statement.setString(3, String.valueOf(funcionario.getSalario()));
-            statement.setString(4, String.valueOf(funcionario.getId()));
+            statement.setString(4, funcionario.getCargo());
+            statement.setString(5, String.valueOf(funcionario.getId()));
             
             statement.execute();
             
@@ -152,12 +153,13 @@ public class FuncionarioDAO implements InterfaceDAO {
             
             
             //Funcionario
-            sql = "UPDATE Funcionario SET senha= ?, salario = ? WHERE Pessoa_idPessoa = ?";
+            sql = "UPDATE Funcionario SET senha= ?, salario = ?, cargo = ? WHERE Pessoa_idPessoa = ?";
             statement = conn.prepareStatement(sql);
             
             statement.setString(1, funcionario.getSenha());
             statement.setString(2, String.valueOf(funcionario.getSalario()));
-            statement.setString(3, String.valueOf(funcionario.getId()));
+            statement.setString(3, funcionario.getCargo());
+            statement.setString(4, String.valueOf(funcionario.getId()));
             statement.execute();
             
             
@@ -201,7 +203,7 @@ public class FuncionarioDAO implements InterfaceDAO {
             conn = Conexao.conectar();
             PreparedStatement statement;
             
-            sql = "SELECT Pessoa.idPessoa, Pessoa.nome, Pessoa.idade, Pessoa.sexo, Pessoa.end_num, Pessoa.end_rua, Pessoa.end_cidade, Pessoa.end_estado, Pessoa.cpf, Funcionario.senha, Funcionario.cod_func, Funcionario.salario FROM Pessoa INNER JOIN Funcionario ON Pessoa.idPessoa = Funcionario.Pessoa_idPessoa";
+            sql = "SELECT Pessoa.idPessoa, Pessoa.nome, Pessoa.idade, Pessoa.sexo, Pessoa.end_num, Pessoa.end_rua, Pessoa.end_cidade, Pessoa.end_estado, Pessoa.cpf, Funcionario.senha, Funcionario.cod_func, Funcionario.salario, Funcionario.cargo FROM Pessoa INNER JOIN Funcionario ON Pessoa.idPessoa = Funcionario.Pessoa_idPessoa";
             
             ResultSet result;
             statement = conn.prepareStatement(sql);
@@ -227,6 +229,7 @@ public class FuncionarioDAO implements InterfaceDAO {
                 funcionario2.setSenha(result.getNString("senha"));
                 funcionario2.setCodigoFuncionario(result.getInt("cod_func"));
                 funcionario2.setSalario(result.getDouble("salario"));
+                funcionario2.setCargo(result.getNString("cargo"));
                 
                 
                 
@@ -246,6 +249,17 @@ public class FuncionarioDAO implements InterfaceDAO {
         }
         
         return lista;
+    }
+    
+    
+    public int controleID(){//Utilitario, p/ controle da quantidade de IDs
+        int quantid = 0;
+        
+        Funcionario f1 = new Funcionario();
+        
+        quantid = this.consulta(f1).size();
+        
+        return quantid;
     }
     
 }

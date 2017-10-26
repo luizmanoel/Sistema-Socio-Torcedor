@@ -5,12 +5,17 @@
  */
 package Telas;
 
+import dao.SocioTorcedorDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import sistemast.SocioTorcedor;
+
 /**
  *
  * @author Luiz Manoel
  */
 public class TelaListaDeSTs extends javax.swing.JFrame {
-
+    ArrayList<SocioTorcedor> lista;
     /**
      * Creates new form TelaListaDeSTs
      */
@@ -20,21 +25,22 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
     }
     
     public void preenche(){
-        /*
-            para preencher a lista:
+        
+           // para preencher a lista:
             SocioTorcedorDAO db = new SocioTorcedorDAO();
-            ArrayList<SocioTorcedor> listaSTs = db.listarSTs();
-            String[] dados;
+            SocioTorcedor st = new SocioTorcedor();
+            ArrayList<Object> listaSTs = db.consulta(st);
+            String[] dados = new String[listaSTs.size()];
+            SocioTorcedor socio;
             for(int i = 0; i < listaSTs.size(); i++){
-                dados[i] = listaSTs.get(i).getNome();
+                socio = (SocioTorcedor) listaSTs.get(i);
+                dados[i] = socio.getNome();
             }
-            jListSTs.setData(dados);
-        
-        
-        */
-        String [] es = {"1","2","3","4","5","6","7","list"};
-        jListSTs.setListData(es);
+            jListSTs.setListData(dados);
+            
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,22 +50,35 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListSTs = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
+        jBTSelect = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jListSTs.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jListSTs, org.jdesktop.beansbinding.ObjectProperty.create(), jListSTs, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        bindingGroup.addBinding(binding);
+
         jScrollPane1.setViewportView(jListSTs);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Sócios Torcedores");
+
+        jBTSelect.setText("ok");
+        jBTSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTSelectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +93,10 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 160, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBTSelect)
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,11 +105,19 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jBTSelect)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBTSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSelectActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBTSelectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,8 +155,10 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBTSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jListSTs;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

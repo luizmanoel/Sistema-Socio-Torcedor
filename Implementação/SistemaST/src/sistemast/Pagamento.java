@@ -5,6 +5,8 @@
  */
 package sistemast;
 
+import java.util.Date;
+
 /**
  *
  * @author rodol
@@ -15,6 +17,7 @@ public class Pagamento {
     private String detalhesPagamento;
     private boolean pago;
     private int CodigoST;
+    private Date data;//Adição//Usar SimpleDateFormat para receber de string
 
   
     public String getCategoria() {

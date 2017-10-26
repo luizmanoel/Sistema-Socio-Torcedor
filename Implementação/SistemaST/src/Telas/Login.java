@@ -117,7 +117,7 @@ public class Login extends javax.swing.JFrame {
         if(validacao()){//Se senha e login não estão vazios
             //Buscar no banco e etc...
             if(checagemLoginAdm()){
-                System.out.println("Pato2");
+                //System.out.println("Pato2");
                 //Iniciar uma tela p/ admin
                 TelaAdmin tela1 = new TelaAdmin();
                 tela1.setVisible(true);
@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame {
             }
             
             if(checagemLoginFunc()){
-                System.out.println("Pato3");
+                //System.out.println("Pato3");
                 //Iniciar uma tela p/ funcionario
                 TelaFuncionario tela1 = new TelaFuncionario();
                 tela1.setVisible(true);

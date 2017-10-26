@@ -6,6 +6,7 @@
 package Telas;
 
 import javax.swing.JOptionPane;
+import sistemast.Administrador;
 import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
 
@@ -14,14 +15,16 @@ import sistemast.SocioTorcedor;
  * @author antonio
  */
 public class TelaAdmin extends javax.swing.JFrame {
-    SocioTorcedor st;
-    Funcionario func;
+    private Administrador meuadmin;
+    private SocioTorcedor st;
+    private Funcionario func;
     
     
     /**
      * Creates new form TelaAdmin
      */
-    public TelaAdmin() {
+    public TelaAdmin() {//Administrador meuadmin
+        //this.meuadmin = meuadmin;
         initComponents();
     }
 
@@ -43,7 +46,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         listarSocio = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         cadastrarSocio = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItemRemoverST = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -75,6 +78,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         listarSocio.setText("Socio");
 
         jMenuItem4.setText("Listar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         listarSocio.add(jMenuItem4);
 
         cadastrarSocio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
@@ -86,8 +94,13 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         listarSocio.add(cadastrarSocio);
 
-        jMenuItem10.setText("Remover");
-        listarSocio.add(jMenuItem10);
+        jMenuItemRemoverST.setText("Remover");
+        jMenuItemRemoverST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRemoverSTActionPerformed(evt);
+            }
+        });
+        listarSocio.add(jMenuItemRemoverST);
 
         jMenuItem11.setText("Alterar Dados");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +137,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenu4.add(jMenuItem7);
 
         jMenuItem8.setText("Remover");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem8);
 
         jMenuBar1.add(jMenu4);
@@ -158,6 +176,8 @@ public class TelaAdmin extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        TelaListaFuncionarios t = new TelaListaFuncionarios();
+        t.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void cadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarFuncionarioActionPerformed
@@ -176,17 +196,41 @@ public class TelaAdmin extends javax.swing.JFrame {
         
         if(ans == 0){//Se sim...
             this.dispose();
-        
+            Login l = new Login();
+            l.setVisible(true);
+            l.setLocationRelativeTo(null);
         }
         
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+
+    private void jMenuItemRemoverSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRemoverSTActionPerformed
+       TelaRemoveST t = new TelaRemoveST();
+       t.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemRemoverSTActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        TelaListaDeSTs l = new TelaListaDeSTs();
+        l.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        TelaRemoveFuncionario l = new TelaRemoveFuncionario();
+        l.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         TelaAlterarST altst = new TelaAlterarST();
         altst.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     
     
     
@@ -235,7 +279,6 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
@@ -244,6 +287,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItemRemoverST;
     private javax.swing.JMenu listarSocio;
     private javax.swing.JMenu relatorioFinanceiro;
     // End of variables declaration//GEN-END:variables

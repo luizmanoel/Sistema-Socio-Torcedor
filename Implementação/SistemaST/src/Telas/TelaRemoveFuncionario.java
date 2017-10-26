@@ -5,7 +5,11 @@
  */
 package Telas;
 
+import dao.FuncionarioDAO;
+import dao.SocioTorcedorDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
 
 /**
@@ -25,17 +29,16 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
     }
     
     public void preenche(){
-         /*
-            para preencher a lista:
-            SocioTorcedorDAO db = new SocioTorcedorDAO();
-            ArrayList<SocioTorcedor> listaSTs = db.listarSTs();
-            String[] dados;
-            for(int i = 0; i < listaSTs.size(); i++){
-                dados[i] = listaSTs.get(i).getNome();
+         FuncionarioDAO db = new FuncionarioDAO();
+            Funcionario func = new Funcionario();
+            ArrayList<Object> listaFuncs = db.consulta(func);
+            String[] dados = new String[listaFuncs.size()];
+            Funcionario f;
+            for(int i = 0; i < listaFuncs.size(); i++){
+                f = (Funcionario) listaFuncs.get(i);
+                dados[i] = f.getNome();
             }
-            jListSTs.setData(dados);       
-        
-        */       
+            jListSTs.setListData(dados);       
     }
 
     /**
@@ -65,7 +68,7 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jListSTs.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -85,21 +88,21 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(222, Short.MAX_VALUE)
                 .addComponent(jBtRemover)
                 .addGap(103, 103, 103))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jBtRemover)
                 .addGap(38, 38, 38))
         );
@@ -116,25 +119,14 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtRemoverActionPerformed
 
     public void remover(){
-        
-        /*
-            Quando somente 1 for selecionado
-                int x = jListSTs.getSelectedIndex();
-                SocioTorcedorDAO db = new SocioTorcedorDAO();
-                ArrayList<SocioTorcedor> listaSTs = db.listarSTs();
-
-                SocioTorcedor st = listaSTs.get(x);
-                db.removeST(st);
-        
-            Quando n forem selecionados
-                int[] x = jListSTs.getSelectedIndices();
-                SocioTorcedorDAO db = new SocioTorcedorDAO();
-                ArrayList<SocioTorcedor> listaSTs = db.listarSTs();
-                for(int i = 0; i < x.length; i++){
-                    SocioTorcedor st = listaSTs.get(x[i]);
-                    db.removeST(st);
-                }      
-        */
+        int x = jListSTs.getSelectedIndex();
+            FuncionarioDAO db = new FuncionarioDAO();
+            Funcionario func = new Funcionario();
+            ArrayList<Object> listaFuncs = db.consulta(func);
+            
+            db.exclui(listaFuncs.get(x));
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!", "Excluir", JOptionPane.INFORMATION_MESSAGE);
+            preenche();
     }
     /**
      * @param args the command line arguments

@@ -8,6 +8,7 @@ package Telas;
 import dao.AdministradorDAO;
 import dao.FuncionarioDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import sistemast.Administrador;
 import sistemast.Funcionario;
 
@@ -18,6 +19,8 @@ import sistemast.Funcionario;
  */
 public class Login extends javax.swing.JFrame {
 
+    private Funcionario ffinal;
+    private Administrador afinal;
     /**
      * Creates new form Login
      */
@@ -125,14 +128,18 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
                 
                 
-            }
-            
-            if(checagemLoginFunc()){
+
+            }else if(checagemLoginFunc()){
                 //System.out.println("Pato3");
                 //Iniciar uma tela p/ funcionario
                 TelaFuncionario tela1 = new TelaFuncionario();
                 tela1.setVisible(true);
                 this.dispose();
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Falha de Login", JOptionPane.ERROR_MESSAGE);
+                jTextLogin.setText("");
+                jPasswordField1.setText("");
             
             }
         
@@ -172,6 +179,7 @@ public class Login extends javax.swing.JFrame {
             if(this.jTextLogin.getText().equals(String.valueOf(a1.getId()))){//Teste se login e senha conferem //Decisao do parametro
                 if(this.jPasswordField1.getText().equals(a1.getSenha())){//Encontrar alternativa
                 
+                    this.afinal = a1;
                     return true; // Login c/ sucesso
                 }
             
@@ -205,6 +213,7 @@ public class Login extends javax.swing.JFrame {
             
             if(this.jTextLogin.getText().equals(String.valueOf(f1.getId()))){//Teste se login e senha conferem
                 if(this.jPasswordField1.getText().equals(f1.getSenha())){
+                    this.ffinal = f1;
                     return true;
                 
                 }

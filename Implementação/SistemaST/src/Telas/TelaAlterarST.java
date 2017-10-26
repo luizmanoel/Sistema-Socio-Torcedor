@@ -16,6 +16,20 @@ import sistemast.SocioTorcedor;
  */
 public class TelaAlterarST extends javax.swing.JFrame {
 
+    /**
+     * @return the st
+     */
+    public SocioTorcedor getSt() {
+        return st;
+    }
+
+    /**
+     * @param st the st to set
+     */
+    public void setSt(SocioTorcedor st) {
+        this.st = st;
+    }
+
     private SocioTorcedor st;
     /**
      * Creates new form TelaAlterarST
@@ -251,13 +265,13 @@ public class TelaAlterarST extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextTelefoneActionPerformed
 
     public void preenche(){//Preenche quando tela eh chamada
-        jTextNome.setText(st.getNome());
+        jTextNome.setText(getSt().getNome());
         //jTextCod.setText(String.valueOf(st.getCodigoSt()));//Desnecessario
-        jTextCpf.setText(st.getCpf());
-        jTextEmail.setText(st.getEmail());
-        jComboIdade.setSelectedIndex(st.getIdade());
-        jTextTelefone.setText(st.getTelefone());
-        if(st.getSexo() == 'F')
+        jTextCpf.setText(getSt().getCpf());
+        jTextEmail.setText(getSt().getEmail());
+        jComboIdade.setSelectedIndex(getSt().getIdade());
+        jTextTelefone.setText(getSt().getTelefone());
+        if(getSt().getSexo() == 'F')
             jComboSexo.setSelectedIndex(0);
         else
             jComboSexo.setSelectedIndex(1);
@@ -271,28 +285,28 @@ public class TelaAlterarST extends javax.swing.JFrame {
         cat1.setValorMensalidade(100);
         cat1.setCodigoCategoria(11211);
         cat1.setNome("Categoria1");
-        st.setCategoria(cat1);
+        getSt().setCategoria(cat1);
         
         
-        st.setCategoria(cat1);
+        getSt().setCategoria(cat1);
         
         Endereco end1 = new Endereco();
         end1.setEndNum(this.jTextEndNum.getText());
         end1.setEndRua(this.jTextEndRua.getText());
         end1.setEndCidade(this.jTextEndCidade.getText());
         end1.setEndEstado(this.jTextEndEstado.getText());
-        st.setEndereco(end1);
+        getSt().setEndereco(end1);
         
         
-        st.setCpf(this.jTextCpf.getText());
-        st.setEmail(this.jTextEmail.getText());
-        st.setIdade(Integer.parseInt(this.jComboIdade.getSelectedItem().toString()));
-        st.setNome(this.jTextNome.getText());
-        st.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
-        st.setTelefone(jTextTelefone.getText());
+        getSt().setCpf(this.jTextCpf.getText());
+        getSt().setEmail(this.jTextEmail.getText());
+        getSt().setIdade(Integer.parseInt(this.jComboIdade.getSelectedItem().toString()));
+        getSt().setNome(this.jTextNome.getText());
+        getSt().setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
+        getSt().setTelefone(jTextTelefone.getText());
         
         SocioTorcedorDAO stdao = new SocioTorcedorDAO();
-        stdao.altera(st);
+        stdao.altera(getSt());
     
     
     

@@ -51,7 +51,7 @@ public class FuncionarioDAO implements InterfaceDAO {
 
 
             //Funcionario
-            sql = "Insert into Funcionario (senha, cod_func, salario, cargo, Pessoa_idPessoa) values (?, ?, ?, ?)";
+            sql = "Insert into Funcionario (senha, cod_func, salario, cargo, Pessoa_idPessoa) values (?, ?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
             
             statement.setString(1, funcionario.getSenha());//Colocar senha em funcionario

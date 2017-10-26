@@ -50,7 +50,7 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Funcionarios");
 
-        jBTSelect.setText("ok");
+        jBTSelect.setText("Ok");
         jBTSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTSelectActionPerformed(evt);

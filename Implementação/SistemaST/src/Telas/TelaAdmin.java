@@ -6,6 +6,7 @@
 package Telas;
 
 import javax.swing.JOptionPane;
+import sistemast.Administrador;
 import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
 
@@ -14,14 +15,16 @@ import sistemast.SocioTorcedor;
  * @author antonio
  */
 public class TelaAdmin extends javax.swing.JFrame {
-    SocioTorcedor st;
-    Funcionario func;
+    private Administrador meuadmin;
+    private SocioTorcedor st;
+    private Funcionario func;
     
     
     /**
      * Creates new form TelaAdmin
      */
-    public TelaAdmin() {
+    public TelaAdmin() {//Administrador meuadmin
+        //this.meuadmin = meuadmin;
         initComponents();
     }
 
@@ -199,7 +202,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-<<<<<<< HEAD
+
     private void jMenuItemRemoverSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRemoverSTActionPerformed
        TelaRemoveST t = new TelaRemoveST();
        t.setVisible(true);
@@ -219,13 +222,13 @@ public class TelaAdmin extends javax.swing.JFrame {
         TelaRemoveFuncionario l = new TelaRemoveFuncionario();
         l.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
-=======
+
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         TelaAlterarST altst = new TelaAlterarST();
         altst.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
->>>>>>> e96ce1bb4090b120506cba8d6f6a04cc98ed88b5
+
     
     
     

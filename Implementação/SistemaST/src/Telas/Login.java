@@ -19,6 +19,8 @@ import sistemast.Funcionario;
  */
 public class Login extends javax.swing.JFrame {
 
+    private Funcionario ffinal;
+    private Administrador afinal;
     /**
      * Creates new form Login
      */
@@ -128,11 +130,6 @@ public class Login extends javax.swing.JFrame {
                 
 
             }else if(checagemLoginFunc()){
-                System.out.println("Pato3");
-
-            }
-            
-            if(checagemLoginFunc()){
                 //System.out.println("Pato3");
                 //Iniciar uma tela p/ funcionario
                 TelaFuncionario tela1 = new TelaFuncionario();
@@ -182,6 +179,7 @@ public class Login extends javax.swing.JFrame {
             if(this.jTextLogin.getText().equals(String.valueOf(a1.getId()))){//Teste se login e senha conferem //Decisao do parametro
                 if(this.jPasswordField1.getText().equals(a1.getSenha())){//Encontrar alternativa
                 
+                    this.afinal = a1;
                     return true; // Login c/ sucesso
                 }
             
@@ -215,6 +213,7 @@ public class Login extends javax.swing.JFrame {
             
             if(this.jTextLogin.getText().equals(String.valueOf(f1.getId()))){//Teste se login e senha conferem
                 if(this.jPasswordField1.getText().equals(f1.getSenha())){
+                    this.ffinal = f1;
                     return true;
                 
                 }

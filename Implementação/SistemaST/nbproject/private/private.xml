@@ -3,29 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaListaDeSTs.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaCadastroST.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaFuncionario.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaAlterarST.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/dao/Conexao.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaRemoveST.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/sistemast/Pessoa.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/sistemast/Endereco.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/sistemast/SistemaST.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaCadastroFuncionario.java</file>
+            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/dao/FuncionarioDAO.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaAdmin.java</file>
-=======
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/Conexao.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/SocioTorcedorDAO.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Endereco.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/CategoriaDAO.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Categoria.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Administrador.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/PagamentoDAO.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Funcionario.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/AdministradorDAO.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/FuncionarioDAO.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Pessoa.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/SistemaST.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/SocioTorcedor.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/sistemast/Operador.java</file>
-            <file>file:/home/antonio/NetBeansProjects/SistemaST/src/dao/InterfaceDAO.java</file>
->>>>>>> cc57979d89e1830870d02012b89a5a8eeb1d3882
         </group>
     </open-files>
 </project-private>

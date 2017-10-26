@@ -30,7 +30,7 @@ public class SistemaST {
        f.setSalario(21312);
        f.setSexo('M');
        f.setTelefone("ilhlihgf");
-       TelaAlterarFuncionario t = new TelaAlterarFuncionario(f);
+      // TelaAlterarFuncionario t = new TelaAlterarFuncionario(f);
        
        SocioTorcedor st = new SocioTorcedor();
        st.setCodigoSt(12);
@@ -42,7 +42,7 @@ public class SistemaST {
        st.setTelefone("32 984001185");
        
        TelaAlterarST t1 = new TelaAlterarST(st);
-       t1.setVisible(true);
+      // t1.setVisible(true);
 
         SocioTorcedor st1 = new SocioTorcedor();
         Categoria cat1 = new Categoria();

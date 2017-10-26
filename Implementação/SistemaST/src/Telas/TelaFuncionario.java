@@ -86,11 +86,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD:Implementação/SistemaST/src/Telas/TelaFuncionario.java
             .addGap(0, 412, Short.MAX_VALUE)
-=======
+
             .addGap(0, 626, Short.MAX_VALUE)
->>>>>>> cc57979d89e1830870d02012b89a5a8eeb1d3882:Implementação/SistemaST/src/sistemast/TelaFuncionario.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

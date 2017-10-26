@@ -6,6 +6,7 @@
 package Telas;
 
 import javax.swing.JOptionPane;
+import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
 
 /**
@@ -14,6 +15,7 @@ import sistemast.SocioTorcedor;
  */
 public class TelaAdmin extends javax.swing.JFrame {
     SocioTorcedor st;
+    Funcionario func;
     
     
     /**
@@ -88,6 +90,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         listarSocio.add(jMenuItem10);
 
         jMenuItem11.setText("Alterar Dados");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         listarSocio.add(jMenuItem11);
 
         jMenuItem12.setText("Delegar Cargos");
@@ -154,7 +161,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void cadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarFuncionarioActionPerformed
-        TelaCadastroFuncionario tela = new TelaCadastroFuncionario();
+        TelaCadastroFuncionario tela = new TelaCadastroFuncionario(func);
         tela.setVisible(true);
     }//GEN-LAST:event_cadastrarFuncionarioActionPerformed
 
@@ -174,6 +181,12 @@ public class TelaAdmin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        TelaAlterarST altst = new TelaAlterarST();
+        altst.setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
     
     
     

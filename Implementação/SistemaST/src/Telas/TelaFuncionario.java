@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import javax.swing.JOptionPane;
 import sistemast.SocioTorcedor;
 
 /**
@@ -87,6 +88,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenu5.setText("Opcões");
 
         jMenuItem5.setText("Sair");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem5);
 
         jMenuBar1.add(jMenu5);
@@ -111,6 +117,19 @@ public class TelaFuncionario extends javax.swing.JFrame {
         TelaCadastroST tela = new TelaCadastroST(st);
         tela.setVisible(true);
     }//GEN-LAST:event_cadastrarSocioActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        
+        int ans = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Sair", JOptionPane.YES_NO_CANCEL_OPTION);//Vai sair realmente?
+        
+        if(ans == 0){//Se sim...
+            this.dispose();
+        
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    
+    
     
     
     

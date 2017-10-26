@@ -3,6 +3,7 @@ package sistemast;
 
 import Telas.TelaAlterarFuncionario;
 import Telas.TelaAlterarST;
+import dao.AdministradorDAO;
 import dao.CategoriaDAO;
 import dao.PagamentoDAO;
 import dao.SocioTorcedorDAO;
@@ -19,7 +20,7 @@ public class SistemaST {
     public static void main(String[] args) {
         
 
-        
+       /* 
        Funcionario f = new Funcionario();
        f.setCargo("oiuyp");
        f.setCodigoFuncionario(23);
@@ -76,7 +77,7 @@ public class SistemaST {
         
         //stdao.adiciona(st1);//teste
         //stdao.altera(st1);
-        //stdao.exclui(st1);
+        //stdao.exclui(st1);*/
         
         /*ArrayList <Object> lista1 = new ArrayList();
         lista1 = stdao.consulta(st1);
@@ -85,7 +86,7 @@ public class SistemaST {
         
         System.out.println(streceive.getCodigoSt() + " " + streceive.getNome());*/
         
-        
+        /*
         Pagamento pg1 = new Pagamento();
         pg1.setCategoria(st1.getCategoria().getNome());
         pg1.setCodigoST(st1.getCodigoSt());
@@ -94,6 +95,34 @@ public class SistemaST {
         
         PagamentoDAO pgdao = new PagamentoDAO();
         //pgdao.adiciona(pg1);
+        */
+        
+        
+        //TesteAdmin
+        
+        Administrador adm1 = new Administrador();
+        AdministradorDAO admindao = new AdministradorDAO();
+        
+        adm1.setCodigoAdministrador(667);
+        adm1.setId(100);
+        adm1.setCpf("101010101");
+        adm1.setEmail("ademir@aaa");
+        adm1.setIdade(33);
+        adm1.setNome("Ademir");
+        adm1.setSalario(1000);
+        adm1.setSenha("administrador");
+        adm1.setSexo('M');
+        adm1.setTelefone("911911911");
+        
+        Endereco end1 = new Endereco();
+        end1.setEndNum("100");
+        end1.setEndRua("Rua K");
+        end1.setEndCidade("Cidade L");
+        end1.setEndEstado("Estado M");
+        adm1.setEndereco(end1);
+        
+        admindao.adiciona(adm1);
+        
 
     }
     

@@ -251,4 +251,15 @@ public class FuncionarioDAO implements InterfaceDAO {
         return lista;
     }
     
+    
+    public int controleID(){//Utilitario, p/ controle da quantidade de IDs
+        int quantid = 0;
+        
+        Funcionario f1 = new Funcionario();
+        
+        quantid = this.consulta(f1).size();
+        
+        return quantid;
+    }
+    
 }

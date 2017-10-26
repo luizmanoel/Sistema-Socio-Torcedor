@@ -5,6 +5,9 @@
  */
 package Telas;
 
+import dao.SocioTorcedorDAO;
+import sistemast.Categoria;
+import sistemast.Endereco;
 import sistemast.SocioTorcedor;
 
 /**
@@ -195,11 +198,12 @@ public class TelaAlterarST extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextEndRua, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextEndRua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel13)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextEndCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,11 +211,12 @@ public class TelaAlterarST extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel7)
+                        .addComponent(jTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
@@ -225,6 +230,15 @@ public class TelaAlterarST extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtEnviarActionPerformed
+        
+        if(validacao()){
+            //Acesso ao BD
+            this.alterarST();
+            
+            this.dispose();
+        
+        
+        }
         
     }//GEN-LAST:event_jBtEnviarActionPerformed
 
@@ -248,6 +262,96 @@ public class TelaAlterarST extends javax.swing.JFrame {
         else
             jComboSexo.setSelectedIndex(1);
     }
+    
+    public void alterarST(){
+        
+                //Para testes
+        Categoria cat1 = new Categoria();
+        cat1.setBeneficios("Varios beneficios");
+        cat1.setValorMensalidade(100);
+        cat1.setCodigoCategoria(11211);
+        cat1.setNome("Categoria1");
+        st.setCategoria(cat1);
+        
+        
+        st.setCategoria(cat1);
+        
+        Endereco end1 = new Endereco();
+        end1.setEndNum(this.jTextEndNum.getText());
+        end1.setEndRua(this.jTextEndRua.getText());
+        end1.setEndCidade(this.jTextEndCidade.getText());
+        end1.setEndEstado(this.jTextEndEstado.getText());
+        st.setEndereco(end1);
+        
+        
+        st.setCpf(this.jTextCpf.getText());
+        st.setEmail(this.jTextEmail.getText());
+        st.setIdade(Integer.parseInt(this.jComboIdade.getSelectedItem().toString()));
+        st.setNome(this.jTextNome.getText());
+        st.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
+        st.setTelefone(jTextTelefone.getText());
+        
+        SocioTorcedorDAO stdao = new SocioTorcedorDAO();
+        stdao.altera(st);
+    
+    
+    
+    
+    
+    }
+    
+    
+    private boolean validacao(){
+        if(this.jTextCpf.getText().length() != 9){//CPF c/ 9 digitos
+        
+            return false;
+        }
+        
+        if(this.jTextEmail.getText().equals("")){
+        
+            return false;
+        }
+        
+        //if(this.jTextEndereco){}//resolver
+        if(this.jTextNome.getText().equals("")){
+            
+            return false;
+        }
+        
+        if(this.jTextTelefone.getText().equals("")){
+            return false;
+        }
+        
+        if(this.jTextEndNum.getText().equals("")){
+        
+            return false;
+        
+        }
+        
+        if(this.jTextEndCidade.getText().equals("")){
+            return false;
+        
+        }
+        
+        if(this.jTextEndRua.getText().equals("")){
+            return false;
+        
+        
+        }
+        
+        if(this.jTextEndEstado.getText().equals("")){
+            return false;
+        
+        }
+        
+        
+        return true;
+    
+    
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */

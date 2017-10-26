@@ -250,4 +250,15 @@ public class SocioTorcedorDAO implements InterfaceDAO{
         
     }
     
+    
+    public int controleID(){//Utilitario, p/ controle da quantidade de IDs totais
+        int quantid = 0;
+        
+        SocioTorcedor st = new SocioTorcedor();
+        
+        quantid = this.consulta(st).size();
+        
+        return quantid;
+    }
+    
 }

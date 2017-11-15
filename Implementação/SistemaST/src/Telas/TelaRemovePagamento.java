@@ -5,40 +5,40 @@
  */
 package Telas;
 
-import dao.FuncionarioDAO;
-import dao.SocioTorcedorDAO;
+
+import dao.PagamentoDAO;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import sistemast.Funcionario;
-import sistemast.SocioTorcedor;
+import sistemast.Pagamento;
+
 
 /**
  *
  * @author Luiz Manoel
  */
-public class TelaRemoveFuncionario extends javax.swing.JFrame {
+public class TelaRemovePagamento extends javax.swing.JFrame {
     TelaAdmin telaAdmin;
     
     /**
      * Creates new form TelaRemoveST
      */
-    public TelaRemoveFuncionario() {
+    public TelaRemovePagamento() {
 
         initComponents();
         preenche();
     }
     
     public void preenche(){
-         FuncionarioDAO db = new FuncionarioDAO();
-            Funcionario func = new Funcionario();
-            ArrayList<Object> listaFuncs = db.consulta(func);
-            String[] dados = new String[listaFuncs.size()];
-            Funcionario f;
-            for(int i = 0; i < listaFuncs.size(); i++){
-                f = (Funcionario) listaFuncs.get(i);
-                dados[i] = f.getNome();
+            PagamentoDAO db = new PagamentoDAO();
+            Pagamento pgto = new Pagamento();
+            ArrayList<Object> listaPags = db.consulta(pgto);
+            String[] dados = new String[listaPags.size()];
+            Pagamento p;
+            for(int i = 0; i < listaPags.size(); i++){
+                p = (Pagamento) listaPags.get(i);
+                dados[i] = p.getData() + "Codigo do Socio: " + p.getCodigoST(); //Adiciona cada um como dados do pagamento
             }
-            jListSTs.setListData(dados);       
+            jListPagamentos.setListData(dados);       
     }
 
     /**
@@ -54,7 +54,7 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
 
         jDialog1 = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListSTs = new javax.swing.JList<>();
+        jListPagamentos = new javax.swing.JList<>();
         jBtRemover = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -70,12 +70,12 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jListSTs.setModel(new javax.swing.AbstractListModel<String>() {
+        jListPagamentos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jListSTs);
+        jScrollPane1.setViewportView(jListPagamentos);
 
         jBtRemover.setText("Remover");
         jBtRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -92,10 +92,10 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
                 .addContainerGap(222, Short.MAX_VALUE)
                 .addComponent(jBtRemover)
                 .addGap(103, 103, 103))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,62 +113,64 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
     private void jBtRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtRemoverActionPerformed
         remover();
         //antes de fechar a tela pode aparecer uma mensagem de sucesso
-        telaAdmin = new TelaAdmin();
-        telaAdmin.setVisible(true);
+        /*telaAdmin = new TelaAdmin();
+        telaAdmin.setVisible(true);*/
         
     }//GEN-LAST:event_jBtRemoverActionPerformed
 
     public void remover(){
-        int x = jListSTs.getSelectedIndex();
-            FuncionarioDAO db = new FuncionarioDAO();
-            Funcionario func = new Funcionario();
-            ArrayList<Object> listaFuncs = db.consulta(func);
+            int x = jListPagamentos.getSelectedIndex();
+            PagamentoDAO db = new PagamentoDAO();
+            Pagamento pgto = new Pagamento();
+            ArrayList<Object> listaPags = db.consulta(pgto);//Novamento nossa lista
             
-            db.exclui(listaFuncs.get(x));
+            db.exclui(listaPags.get(x));//Exclui aquele do mesmo indice do selecionado
             JOptionPane.showMessageDialog(null, "Excluído com sucesso!", "Excluir", JOptionPane.INFORMATION_MESSAGE);
             preenche();
     }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoveFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoveFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoveFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRemoveFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaRemoveFuncionario().setVisible(true);
-                
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaRemovePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaRemovePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaRemovePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaRemovePagamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaRemovePagamento().setVisible(true);
+//                
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtRemover;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JList<String> jListSTs;
+    private javax.swing.JList<String> jListPagamentos;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

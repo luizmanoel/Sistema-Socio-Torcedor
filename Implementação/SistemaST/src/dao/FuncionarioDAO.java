@@ -12,8 +12,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sistemast.Email;
 import sistemast.Endereco;
 import sistemast.Funcionario;
+import sistemast.Telefone;
 
 /**
  *
@@ -63,28 +65,47 @@ public class FuncionarioDAO implements InterfaceDAO {
             statement.execute();
             
             
-            //Contato
-            sql = "Insert into Contato (Pessoa_idPessoa) values(?)";
+
             
-            statement = conn.prepareStatement(sql);
-            statement.setString(1, String.valueOf(funcionario.getId()));
+            for(int i = 0; i < funcionario.getEmail().size(); i++){//Dentro de loop, para pegar todos os cadastrados
+                sql = "Insert into Email (email, cod_email) values (?, ?)";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, funcionario.getEmail().get(i).getEndereco());//End do email
+                statement.setString(2, String.valueOf(funcionario.getEmail().get(i).getCodEmail()));//Cod do email
+
+                statement.execute();
+            }
             
-            statement.execute();
+            //Pessoa_Email
+            for(int i = 0; i < funcionario.getEmail().size(); i++){
+                sql = "Insert into Pessoa_Email (Pessoa_idPessoa, Email_cod_email) values(?, ?)";//Relaciona duas tabelas
+
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, String.valueOf(funcionario.getId()));
+                statement.setString(2, String.valueOf(funcionario.getEmail().get(i).getCodEmail()));
+
+                statement.execute();
+            }
             
-            sql = "Insert into Email (email, Contato_Pessoa_idPessoa) values (?, ?)";
-            statement = conn.prepareStatement(sql);
-            statement.setString(1, funcionario.getEmail());
-            statement.setString(2, String.valueOf(funcionario.getId()));
+            for(int i = 0; i < funcionario.getTelefone().size(); i++){
+                sql = "Insert into Telefone (telefone, cod_tel) values (?, ?)";//Numtel e codigo do tel
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, funcionario.getTelefone().get(i).getNumero());
+                statement.setString(2, String.valueOf(funcionario.getTelefone().get(i).getCodTelefone()));
+
+                statement.execute();
+            }
             
-            statement.execute();
-            
-            sql = "Insert into Telefone (telefone, Contato_Pessoa_idPessoa) values (?, ?)";
-            statement = conn.prepareStatement(sql);
-            statement.setString(1, funcionario.getTelefone());
-            statement.setString(2, String.valueOf(funcionario.getId()));
-            
-            statement.execute();
-            
+            //Pessoa_Email
+            for(int i = 0; i < funcionario.getTelefone().size(); i++){
+                sql = "Insert into Pessoa_Telefone (Pessoa_idPessoa, Telefone_cod_tel) values(?, ?)";//Relaciona duas tabelas
+
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, String.valueOf(funcionario.getId()));
+                statement.setString(2, String.valueOf(funcionario.getTelefone().get(i).getCodTelefone()));
+
+                statement.execute();
+            }
             
             
             Conexao.closeConn();
@@ -100,14 +121,69 @@ public class FuncionarioDAO implements InterfaceDAO {
         }
     }
 
+    
+    public void delecaoTelefones(String idPessoa){//Deletar os numeros e emails associados das tabelas Email e Telefone
+        //NAO FECHAR CONEXAO NEM ABRIR AQUI, TRATAR NO METODO QUE CHAMAR ESTE
+        try{
+            PreparedStatement statement;
+            sql = "SELECT * FROM Pessoa_Telefone WHERE Pessoa_idPessoa = ?";
+            ResultSet result;
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, idPessoa);//Por id
+            result = statement.executeQuery();
+            
+            while(result.next()){//Pega todos os tels da pessoa com id passado
+                sql = "DELETE FROM Telefone WHERE cod_tel = ? ";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, result.getString("Telefone_cod_tel"));
+                statement.execute();
+            
+            
+            }
+            
+            
+            sql = "SELECT * FROM Pessoa_Email WHERE Pessoa_idPessoa = ?";
+            
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, idPessoa);//Por id
+            result = statement.executeQuery();//Reciclando
+            
+            while(result.next()){
+                sql = "DELETE FROM Email WHERE cod_email = ? ";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, result.getString("Email_cod_email"));
+                statement.execute();
+            
+            
+            }
+            
+            //Tels e Emails Já deletados
+            
+    
+            }catch(SQLException sqlex){
+                Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, sqlex);
+                
+                
+                
+            }
+    
+    
+    }
+    
+    
     @Override
     public void exclui(Object obj) {//Deleta um Func. do BD
         
         try{
-            Funcionario funcionario = (Funcionario) obj;
-            sql = "DELETE FROM Pessoa Where idPessoa = ?";//Fazemos assim, por conta do BD implementado seguindo "estilo OO". Nele, usamos cascade pra resolver.
             
             conn = Conexao.conectar();
+            Funcionario funcionario = (Funcionario) obj;
+            this.delecaoTelefones(String.valueOf(funcionario.getId()));
+            
+            
+            sql = "DELETE FROM Pessoa Where idPessoa = ?";//Fazemos assim, por conta do BD implementado seguindo "estilo OO". Nele, usamos cascade pra resolver.
+            
+            
             PreparedStatement statement;
             statement = conn.prepareStatement(sql);
             
@@ -162,7 +238,7 @@ public class FuncionarioDAO implements InterfaceDAO {
             statement.setString(4, String.valueOf(funcionario.getId()));
             statement.execute();
             
-            
+            /*
             //Contato
             
             sql = "UPDATE Email SET email = ? WHERE Contato_Pessoa_idPessoa = ?";
@@ -178,8 +254,22 @@ public class FuncionarioDAO implements InterfaceDAO {
             statement.setString(2, String.valueOf(funcionario.getId()));
             
             statement.execute();
+            */
+            for(int i = 0; i < funcionario.getEmail().size(); i++){//Itera sobre a lista analisada
+                sql = "UPDATE Email SET email = ? WHERE cod_email = ?";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, funcionario.getEmail().get(i).getEndereco());
+                statement.setString(2, String.valueOf(funcionario.getEmail().get(i).getCodEmail()));//Pega este indice, atualiza o mesmo
+                statement.execute();
+            }
             
-            
+            for(int i = 0; i < funcionario.getTelefone().size(); i++){
+                sql = "UPDATE Telefone SET telefone = ? WHERE cod_tel = ?";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, funcionario.getTelefone().get(i).getNumero());
+                statement.setString(2, String.valueOf(funcionario.getTelefone().get(i).getCodTelefone()));//Pega este indice, atualiza o mesmo
+                statement.execute();
+            }
             
             Conexao.closeConn();
             
@@ -231,13 +321,70 @@ public class FuncionarioDAO implements InterfaceDAO {
                 funcionario2.setSalario(result.getDouble("salario"));
                 funcionario2.setCargo(result.getNString("cargo"));
                 
+                //Tratamento de Telefone e email
+                
+                
+                
+                sql = "SELECT Email.email, Email.cod_email, Pessoa_Email.Pessoa_idPessoa FROM Pessoa_Email INNER JOIN Email ON Pessoa_Email.Email_cod_email = Email.cod_email WHERE Pessoa_Email.Pessoa_idPessoa = ?";//Pegar
+                
+                
+                ResultSet rmail;
+                statement = conn.prepareStatement(sql);//Usa statement la de cima
+                statement.setString(1, String.valueOf(funcionario2.getId()));
+                rmail = statement.executeQuery();
+                
+                ArrayList <Email> listMail = new ArrayList<Email>();
+                
+                while(rmail.next()){//Todos da Query
+                    Email tempmail = new Email();
+                    tempmail.setCodEmail(rmail.getInt("cod_email"));//Cod email
+                    tempmail.setEndereco(rmail.getString("email"));//Endereco email
+                    
+                    //Agora, adicionamos ao funcionario
+                    listMail.add(tempmail);
+                    
+                    
+                
+                
+                
+                }
+                funcionario2.setEmail(listMail);
+                
+                
+                sql = "SELECT Telefone.telefone, Telefone.cod_tel, Pessoa_Telefone.Pessoa_idPessoa FROM Pessoa_Telefone INNER JOIN Telefone ON Pessoa_Telefone.Telefone_cod_tel = Telefone.cod_tel WHERE Pessoa_Telefone.Pessoa_idPessoa = ?";//Pegar
+                
+                ResultSet rfone;
+                statement = conn.prepareStatement(sql);//Usa statement la de cima
+                statement.setString(1, String.valueOf(funcionario2.getId()));
+                rfone = statement.executeQuery();
+                
+                ArrayList <Telefone> listTel = new ArrayList<Telefone>();
+                
+                while(rfone.next()){//Todos da Query
+                    Telefone temptel = new Telefone();
+                    temptel.setCodTelefone(rfone.getInt("cod_tel"));//Cod //CONSERTO//Adicionar ambos o codigo e o numero sera util para o update
+                    temptel.setNumero(rfone.getString("telefone"));//Telefone
+                    
+                    //Agora, adicionamos ao funcionario
+                    listTel.add(temptel);
+                
+                
+                
+                }
+                funcionario2.setTelefone(listTel);
+                
+                
                 
                 
                 lista.add(funcionario2);
+                
+                
+                
             
             
             
             }
+            Conexao.closeConn();
         
         
         

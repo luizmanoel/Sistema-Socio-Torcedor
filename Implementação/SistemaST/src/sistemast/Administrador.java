@@ -16,7 +16,7 @@ public class Administrador extends Operador{
     public ArrayList<SocioTorcedor> a;
     private int codigoAdministrador;
     
-    public Administrador(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, int codigoAdministrador, String senha){
+    public Administrador(String nome, int idade, char sexo, Endereco endereco, String cpf, ArrayList<Telefone> telefone, ArrayList<Email> email, double salario, int codigoAdministrador, String senha){
         super(nome, idade, sexo, endereco, cpf, telefone, email, salario, senha);
         this.codigoAdministrador = codigoAdministrador;
     }

@@ -14,12 +14,12 @@ import sistemast.Funcionario;
  *
  * @author Luiz Manoel
  */
-public class TelaListaFuncionarios extends javax.swing.JFrame {
+public class TelaListaDeAlteracaoFuncionarios extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaListaFuncionarios
      */
-    public TelaListaFuncionarios() {
+    public TelaListaDeAlteracaoFuncionarios() {
         initComponents();
         preenche();
     }
@@ -50,7 +50,7 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Funcionarios");
 
-        jBTSelect.setText("VerDados");
+        jBTSelect.setText("Alterar");
         jBTSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTSelectActionPerformed(evt);
@@ -91,10 +91,21 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBTSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSelectActionPerformed
+       int x = jListFuncs.getSelectedIndex();//Pega pelo valor marcado
+       FuncionarioDAO db = new FuncionarioDAO();
+       Funcionario func = new Funcionario();
+       ArrayList<Object> listaFunc = db.consulta(func);
+       Funcionario funcionario = (Funcionario) listaFunc.get(x);//Index comum;
+       TelaAlterarFuncionario t = new TelaAlterarFuncionario(funcionario);
+       t.setVisible(true);
+        
+        
         dispose();
         preenche();
     }//GEN-LAST:event_jBTSelectActionPerformed
- public void preenche(){
+ 
+    
+    public void preenche(){
         
            // para preencher a lista:
             FuncionarioDAO db = new FuncionarioDAO();
@@ -126,20 +137,21 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListaFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoFuncionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListaFuncionarios().setVisible(true);
+                new TelaListaDeAlteracaoFuncionarios().setVisible(true);
             }
         });
     }

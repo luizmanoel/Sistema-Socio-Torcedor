@@ -5,6 +5,8 @@
  */
 package sistemast;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author antonio
@@ -55,7 +57,7 @@ public class SocioTorcedor extends Pessoa {
     }
 
      
-    public SocioTorcedor(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email){
+    public SocioTorcedor(String nome, int idade, char sexo, Endereco endereco, String cpf, ArrayList<Telefone> telefone, ArrayList<Email> email){
         super.setNome(nome);
         super.setIdade(idade);
         super.setSexo(sexo);

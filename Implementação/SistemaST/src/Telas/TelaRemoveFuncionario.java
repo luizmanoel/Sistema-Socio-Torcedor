@@ -113,8 +113,8 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
     private void jBtRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtRemoverActionPerformed
         remover();
         //antes de fechar a tela pode aparecer uma mensagem de sucesso
-        telaAdmin = new TelaAdmin();
-        telaAdmin.setVisible(true);
+        /*telaAdmin = new TelaAdmin();
+        telaAdmin.setVisible(true);*/
         
     }//GEN-LAST:event_jBtRemoverActionPerformed
 

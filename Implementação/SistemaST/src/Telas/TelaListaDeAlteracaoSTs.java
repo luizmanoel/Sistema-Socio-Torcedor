@@ -14,12 +14,12 @@ import sistemast.SocioTorcedor;
  *
  * @author Luiz Manoel
  */
-public class TelaListaDeSTs extends javax.swing.JFrame {
+public class TelaListaDeAlteracaoSTs extends javax.swing.JFrame {
     ArrayList<SocioTorcedor> lista;
     /**
      * Creates new form TelaListaDeSTs
      */
-    public TelaListaDeSTs() {
+    public TelaListaDeAlteracaoSTs() {
         initComponents();
         preenche();
     }
@@ -73,7 +73,7 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Sócios Torcedores");
 
-        jBTSelect.setText("Ver Dados");
+        jBTSelect.setText("Alterar");
         jBTSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTSelectActionPerformed(evt);
@@ -116,13 +116,13 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBTSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSelectActionPerformed
-       int x = jListSTs.getSelectedIndex();
+       int x = jListSTs.getSelectedIndex();//Pega pelo valor marcado
        SocioTorcedorDAO db = new SocioTorcedorDAO();
-            SocioTorcedor st = new SocioTorcedor();
-            ArrayList<Object> listaSTs = db.consulta(st);
-            SocioTorcedor socio = (SocioTorcedor) listaSTs.get(x);
-       TelaVerDadosST t = new TelaVerDadosST(socio);
-        t.setVisible(true);
+       SocioTorcedor st = new SocioTorcedor();
+       ArrayList<Object> listaSTs = db.consulta(st);
+       SocioTorcedor socio = (SocioTorcedor) listaSTs.get(x);
+       TelaAlterarST t = new TelaAlterarST(socio);
+       t.setVisible(true);
        dispose();
     }//GEN-LAST:event_jBTSelectActionPerformed
 
@@ -143,20 +143,21 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListaDeSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListaDeSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListaDeSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListaDeSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaDeAlteracaoSTs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListaDeSTs().setVisible(true);
+                new TelaListaDeAlteracaoSTs().setVisible(true);
             }
         });
     }

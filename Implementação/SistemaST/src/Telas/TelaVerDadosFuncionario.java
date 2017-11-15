@@ -6,38 +6,42 @@
 package Telas;
 
 import sistemast.Endereco;
+import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
 
 /**
  *
  * @author Luiz Manoel
  */
-public class TelaVerDadosST extends javax.swing.JFrame {
-    private SocioTorcedor st;
+public class TelaVerDadosFuncionario extends javax.swing.JFrame {
+    private Funcionario func;
     /**
      * Creates new form TelaVerDadosST
      */
-    public TelaVerDadosST(SocioTorcedor st) {
-        this.st = st;
+    public TelaVerDadosFuncionario(Funcionario func) {
+        this.func = func;
         initComponents();
         preenche();
     }
 
-    private TelaVerDadosST() {
+    private TelaVerDadosFuncionario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public void preenche(){
-        labelNome.setText(st.getNome());
-        labelCpf.setText(st.getCpf());
-        labelIdade.setText(String.valueOf(st.getIdade()));
-        labelSexo.setText(String.valueOf(st.getSexo()));
-        labelTelefone.setText(String.valueOf(st.getTelefone()));
-        labelEmail.setText(String.valueOf(st.getEmail()));
-        Endereco end = st.getEndereco();
+        labelNome.setText(func.getNome());
+        labelCpf.setText(func.getCpf());
+        labelIdade.setText(String.valueOf(func.getIdade()));
+        labelSexo.setText(String.valueOf(func.getSexo()));
+        //labelTelefone.setText(String.valueOf(func.getTelefone()));
+        //labelEmail.setText(String.valueOf(func.getEmail()));
+        
+        Endereco end = func.getEndereco();
         labelRua.setText(end.getEndRua());
         labelNum.setText(end.getEndNum());
         labelCidade.setText(end.getEndCidade());
         labelEstado.setText(end.getEndEstado());
+        this.jListMail.setListData(func.endEmails());
+        this.jListTel.setListData(func.numerosTelefone());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +64,7 @@ public class TelaVerDadosST extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jBtEnviar = new javax.swing.JButton();
+        jBtFechar = new javax.swing.JButton();
         labelNome = new javax.swing.JLabel();
         labelIdade = new javax.swing.JLabel();
         labelSexo = new javax.swing.JLabel();
@@ -71,8 +75,12 @@ public class TelaVerDadosST extends javax.swing.JFrame {
         labelCpf = new javax.swing.JLabel();
         labelTelefone = new javax.swing.JLabel();
         labelEmail = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListTel = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListMail = new javax.swing.JList<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel5.setText("Endereço");
 
@@ -88,7 +96,7 @@ public class TelaVerDadosST extends javax.swing.JFrame {
 
         jLabel14.setText("Estado");
 
-        jLabel2.setText(" Dados Sócio Torcedor");
+        jLabel2.setText(" Dados Funcionário");
 
         jLabel1.setText("Nome");
 
@@ -98,10 +106,10 @@ public class TelaVerDadosST extends javax.swing.JFrame {
 
         jLabel4.setText("Sexo");
 
-        jBtEnviar.setText("Fechar");
-        jBtEnviar.addActionListener(new java.awt.event.ActionListener() {
+        jBtFechar.setText("Fechar");
+        jBtFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtEnviarActionPerformed(evt);
+                jBtFecharActionPerformed(evt);
             }
         });
 
@@ -125,6 +133,20 @@ public class TelaVerDadosST extends javax.swing.JFrame {
 
         labelEmail.setText("jLabel23");
 
+        jListTel.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListTel);
+
+        jListMail.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jListMail);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,28 +155,38 @@ public class TelaVerDadosST extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelIdade)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelTelefone)
+                        .addGap(173, 173, 173))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addGap(66, 66, 66))
+                                        .addComponent(labelEmail))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(212, 212, 212)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addComponent(jBtFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1))
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel8))
-                                    .addComponent(jLabel5))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelIdade)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel15)
@@ -162,30 +194,31 @@ public class TelaVerDadosST extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelNum)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelCidade)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel14))
-                                    .addComponent(labelCpf)
-                                    .addComponent(labelEmail)))
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
+                                    .addComponent(labelCidade))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelRua)
-                            .addComponent(labelEstado)
-                            .addComponent(labelTelefone)
-                            .addComponent(labelSexo))
-                        .addGap(173, 173, 173))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelEstado))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(66, 66, 66))
+                                .addComponent(labelCpf))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(labelSexo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelRua)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jBtEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +228,9 @@ public class TelaVerDadosST extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(labelCpf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -216,28 +251,28 @@ public class TelaVerDadosST extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(labelEstado)
                     .addComponent(labelCidade))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(labelCpf)
-                    .addComponent(labelTelefone))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(labelEmail))
-                .addGap(39, 39, 39)
-                .addComponent(jBtEnviar)
-                .addGap(56, 56, 56))
+                .addGap(39, 167, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(labelTelefone)
+                            .addComponent(jLabel8)
+                            .addComponent(labelEmail))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtFechar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtEnviarActionPerformed
+    private void jBtFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtFecharActionPerformed
         dispose();
 
-    }//GEN-LAST:event_jBtEnviarActionPerformed
+    }//GEN-LAST:event_jBtFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,26 +291,27 @@ public class TelaVerDadosST extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaVerDadosST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerDadosFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaVerDadosST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerDadosFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaVerDadosST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerDadosFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaVerDadosST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaVerDadosFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaVerDadosST().setVisible(true);
+                new TelaVerDadosFuncionario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtEnviar;
+    private javax.swing.JButton jBtFechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -288,6 +324,10 @@ public class TelaVerDadosST extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JList<String> jListMail;
+    private javax.swing.JList<String> jListTel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelCidade;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelEmail;

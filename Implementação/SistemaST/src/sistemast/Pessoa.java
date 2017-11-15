@@ -5,11 +5,41 @@
  */
 package sistemast;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author antonio
  */
 public abstract class Pessoa {
+
+    /**
+     * @return the telefone
+     */
+    public ArrayList<Telefone> getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(ArrayList<Telefone> telefone) {
+        this.telefone = telefone;
+    }
+
+    /**
+     * @return the email
+     */
+    public ArrayList<Email> getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(ArrayList<Email> email) {
+        this.email = email;
+    }
 
     /**
      * @return the nome
@@ -81,33 +111,7 @@ public abstract class Pessoa {
         this.cpf = cpf;
     }
 
-    /**
-     * @return the telefone
-     */
-    public String getTelefone() {
-        return telefone;
-    }
 
-    /**
-     * @param telefone the telefone to set
-     */
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
     
     private int id;
     private String nome;
@@ -115,8 +119,8 @@ public abstract class Pessoa {
     private char sexo;
     private Endereco endereco;
     private String cpf;
-    private String telefone;
-    private String email;
+    private ArrayList<Telefone> telefone;
+    private ArrayList<Email> email;
     
     public Pessoa(){}
 

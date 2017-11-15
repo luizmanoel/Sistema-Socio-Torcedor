@@ -6,6 +6,7 @@
 package Telas;
 
 import javax.swing.JOptionPane;
+import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
 
 /**
@@ -13,13 +14,17 @@ import sistemast.SocioTorcedor;
  * @author antonio
  */
 public class TelaFuncionario extends javax.swing.JFrame {
-    SocioTorcedor st;
+    
+    private Funcionario meufuncionario;
+    private SocioTorcedor st;
+    
     
     
     /**
      * Creates new form TelaAdmin
      */
-    public TelaFuncionario() {
+    public TelaFuncionario(Funcionario meufuncionario) {
+        this.meufuncionario = meufuncionario;
         initComponents();
     }
 
@@ -37,6 +42,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         MeusDados = new javax.swing.JMenuItem();
         relatorioFinanceiro = new javax.swing.JMenu();
+        jMenuPagamento = new javax.swing.JMenu();
+        jMenuPGListar = new javax.swing.JMenuItem();
+        JMenuPGCadastro = new javax.swing.JMenuItem();
+        jMenuPGAlterar = new javax.swing.JMenuItem();
+        jMenuPGDeletar = new javax.swing.JMenuItem();
         listarSocio = new javax.swing.JMenu();
         jMenuListaS = new javax.swing.JMenuItem();
         cadastrarSocio = new javax.swing.JMenuItem();
@@ -58,6 +68,38 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         relatorioFinanceiro.setText("Contabilidade");
+
+        jMenuPagamento.setText("Pagamento");
+
+        jMenuPGListar.setText("Listar Pagamento");
+        jMenuPagamento.add(jMenuPGListar);
+
+        JMenuPGCadastro.setText("Cadastrar Pagamento");
+        JMenuPGCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuPGCadastroActionPerformed(evt);
+            }
+        });
+        jMenuPagamento.add(JMenuPGCadastro);
+
+        jMenuPGAlterar.setText("Alterar Pagamento");
+        jMenuPGAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPGAlterarActionPerformed(evt);
+            }
+        });
+        jMenuPagamento.add(jMenuPGAlterar);
+
+        jMenuPGDeletar.setText("Remover Pagamento");
+        jMenuPGDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPGDeletarActionPerformed(evt);
+            }
+        });
+        jMenuPagamento.add(jMenuPGDeletar);
+
+        relatorioFinanceiro.add(jMenuPagamento);
+
         jMenuBar1.add(relatorioFinanceiro);
 
         listarSocio.setText("Socio");
@@ -181,6 +223,24 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenuPGDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPGDeletarActionPerformed
+        // TODO add your handling code here:
+        TelaRemovePagamento removePag = new TelaRemovePagamento();
+        removePag.setVisible(true);
+    }//GEN-LAST:event_jMenuPGDeletarActionPerformed
+
+    private void JMenuPGCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuPGCadastroActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroPagamento cadastroPag = new TelaCadastroPagamento();
+        cadastroPag.setVisible(true);
+    }//GEN-LAST:event_JMenuPGCadastroActionPerformed
+
+    private void jMenuPGAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPGAlterarActionPerformed
+        // TODO add your handling code here:
+        TelaListaDeAlteracaoPagamento alteraPag = new TelaListaDeAlteracaoPagamento();
+        alteraPag.setVisible(true);
+    }//GEN-LAST:event_jMenuPGAlterarActionPerformed
     
     
     
@@ -223,6 +283,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JMenuPGCadastro;
     private javax.swing.JMenuItem MeusDados;
     private javax.swing.JMenuItem cadastrarSocio;
     private javax.swing.JLabel jLabel1;
@@ -233,6 +294,10 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuDelegarCargos;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuListaS;
+    private javax.swing.JMenuItem jMenuPGAlterar;
+    private javax.swing.JMenuItem jMenuPGDeletar;
+    private javax.swing.JMenuItem jMenuPGListar;
+    private javax.swing.JMenu jMenuPagamento;
     private javax.swing.JMenuItem jMenuRemoveS;
     private javax.swing.JMenu listarSocio;
     private javax.swing.JMenu relatorioFinanceiro;

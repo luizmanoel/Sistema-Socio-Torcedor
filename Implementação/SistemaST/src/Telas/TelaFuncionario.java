@@ -72,6 +72,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenuPagamento.setText("Pagamento");
 
         jMenuPGListar.setText("Listar Pagamento");
+        jMenuPGListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPGListarActionPerformed(evt);
+            }
+        });
         jMenuPagamento.add(jMenuPGListar);
 
         JMenuPGCadastro.setText("Cadastrar Pagamento");
@@ -241,6 +246,12 @@ public class TelaFuncionario extends javax.swing.JFrame {
         TelaListaDeAlteracaoPagamento alteraPag = new TelaListaDeAlteracaoPagamento();
         alteraPag.setVisible(true);
     }//GEN-LAST:event_jMenuPGAlterarActionPerformed
+
+    private void jMenuPGListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPGListarActionPerformed
+        // TODO add your handling code here:
+        TelaListaPagamento listaPag = new TelaListaPagamento();
+        listaPag.setVisible(true);
+    }//GEN-LAST:event_jMenuPGListarActionPerformed
     
     
     

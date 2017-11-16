@@ -5,9 +5,11 @@
  */
 package Telas;
 
+import dao.CategoriaDAO;
 import dao.PagamentoDAO;
 import dao.SocioTorcedorDAO;
 import java.util.ArrayList;
+import sistemast.Categoria;
 import sistemast.Pagamento;
 import sistemast.SocioTorcedor;
 
@@ -15,30 +17,30 @@ import sistemast.SocioTorcedor;
  *
  * @author antonio
  */
-public class TelaCadastroPagamento extends javax.swing.JFrame {
+public class TelaCadastroCategoria extends javax.swing.JFrame {
 
     //ArrayList<SocioTorcedor> lista;
     /**
      * Creates new form TelaCadastroPagamento
      */
-    public TelaCadastroPagamento() {
+    public TelaCadastroCategoria() {
         initComponents();
-        preenche();
+        
     }
     
     public void preenche(){
         
            // para preencher a lista:
-            SocioTorcedorDAO db = new SocioTorcedorDAO();
-            SocioTorcedor st = new SocioTorcedor();
-            ArrayList<Object> listaSTs = db.consulta(st);
-            String[] dados = new String[listaSTs.size()];
-            SocioTorcedor socio;
-            for(int i = 0; i < listaSTs.size(); i++){
-                socio = (SocioTorcedor) listaSTs.get(i);
-                dados[i] = socio.getNome();
+            CategoriaDAO db = new CategoriaDAO();
+            Categoria cat = new Categoria();
+            ArrayList<Object> listaCat = db.consulta(cat);
+            String[] dados = new String[listaCat.size()];
+            Categoria categoria;
+            for(int i = 0; i < listaCat.size(); i++){
+                categoria = (Categoria) listaCat.get(i);
+                dados[i] = categoria.getNome();
             }
-            jListSTs.setListData(dados);
+            
             
     }
 
@@ -51,90 +53,75 @@ public class TelaCadastroPagamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldData = new javax.swing.JTextField();
+        jTextFieldNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaBeneficios = new javax.swing.JTextArea();
         jLabelData = new javax.swing.JLabel();
         jLabelDetalhes = new javax.swing.JLabel();
         jTextFieldValor = new javax.swing.JTextField();
         jLabelValor = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListSTs = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
         jButtonConfirmar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaBeneficios.setColumns(20);
+        jTextAreaBeneficios.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaBeneficios);
 
-        jLabelData.setText("Data");
+        jLabelData.setText("Nome");
 
-        jLabelDetalhes.setText("Detalhes");
+        jLabelDetalhes.setText("Beneficios");
 
-        jLabelValor.setText("Valor");
+        jLabelValor.setText("Valor da Mensalidade");
 
-        jListSTs.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jListSTs);
-
-        jLabel1.setText("Pagador");
-
-        jButtonConfirmar.setText("Confirmar Pagamento");
+        jButtonConfirmar.setText("Cadastrar");
         jButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConfirmarActionPerformed(evt);
             }
         });
 
+        jLabel2.setText("Categoria");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonConfirmar)
                     .addComponent(jLabelValor)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabelDetalhes)
                         .addComponent(jLabelData)
                         .addComponent(jScrollPane1)
-                        .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonConfirmar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelData)
-                    .addComponent(jLabel1))
+                .addComponent(jLabel2)
+                .addGap(31, 31, 31)
+                .addComponent(jLabelData)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabelDetalhes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabelDetalhes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
                 .addComponent(jLabelValor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jButtonConfirmar)
-                .addContainerGap())
+                .addGap(32, 32, 32))
         );
 
         pack();
@@ -149,29 +136,21 @@ public class TelaCadastroPagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     public void criaPagamento(){
-        Pagamento novopag = new Pagamento();
+        Categoria novacat = new Categoria();
         
         
-        int x = jListSTs.getSelectedIndex();//Pega pelo valor marcado
-        SocioTorcedorDAO db = new SocioTorcedorDAO();
-        SocioTorcedor st = new SocioTorcedor();
-        ArrayList<Object> listaSTs = db.consulta(st);
-        SocioTorcedor socio = (SocioTorcedor) listaSTs.get(x);
+        //Codigo é auto-increment
         
-        //Agora usamos o codigo do ST
-        novopag.setCodigoST(socio.getCodigoSt());//Correção
-        novopag.setData(this.jTextFieldData.getText());//Faze um teste de validação?
-        novopag.setDetalhesPagamento(this.jTextArea1.getText());
-        Double tempVal = 0.0;
-        //try{
-            tempVal = Double.parseDouble(this.jTextFieldValor.getText());
-        //}catch (NumberFormatException e){
+        //Agora usamos o codigo 
+        //novacat.setCodigoST(socio.getCodigoSt());//Correção
+        novacat.setBeneficios(this.jTextAreaBeneficios.getText());
+        novacat.setNome(this.jTextFieldNome.getText());
+        novacat.setValorMensalidade(Double.parseDouble(this.jTextFieldValor.getText()));
         
-        //}
-        novopag.setValor(tempVal);//Resolver
         
-        PagamentoDAO pgdao = new PagamentoDAO();
-        pgdao.adiciona(novopag);
+        
+        CategoriaDAO catdao = new CategoriaDAO();
+        catdao.adiciona(novacat);
     
     }
     /**
@@ -211,15 +190,13 @@ public class TelaCadastroPagamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConfirmar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelData;
     private javax.swing.JLabel jLabelDetalhes;
     private javax.swing.JLabel jLabelValor;
-    private javax.swing.JList<String> jListSTs;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldData;
+    private javax.swing.JTextArea jTextAreaBeneficios;
+    private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 }

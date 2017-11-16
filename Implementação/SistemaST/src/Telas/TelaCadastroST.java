@@ -5,11 +5,15 @@
  */
 package Telas;
 
+import dao.CategoriaDAO;
 import dao.SocioTorcedorDAO;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import sistemast.Categoria;
+import sistemast.Email;
 import sistemast.Endereco;
 import sistemast.SocioTorcedor;
+import sistemast.Telefone;
 
 /**
  *
@@ -28,7 +32,9 @@ public class TelaCadastroST extends javax.swing.JFrame {
 
     public TelaCadastroST(SocioTorcedor st) {
         //this.st = st;
+        
         initComponents();
+        preencherListaCategoria();
     }
 
     /**
@@ -68,10 +74,16 @@ public class TelaCadastroST extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextID = new javax.swing.JTextField();
+        jTextCodTel = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jTextCodMail = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListCategoria = new javax.swing.JList<>();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nome");
 
@@ -89,7 +101,7 @@ public class TelaCadastroST extends javax.swing.JFrame {
 
         jLabel8.setText("Email");
 
-        jLabel9.setText("Código");
+        jLabel9.setText("Código Socio Torcedor");
 
         jTextTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,11 +135,32 @@ public class TelaCadastroST extends javax.swing.JFrame {
 
         jLabel10.setText("ID");
 
+        jLabel17.setText("Código do Telefone");
+
+        jLabel18.setText("Código do Email");
+
+        jListCategoria.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jListCategoria);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(40, 40, 40)
+                .addComponent(jTextEmail)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
@@ -147,57 +180,60 @@ public class TelaCadastroST extends javax.swing.JFrame {
                     .addComponent(jComboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(153, 153, 153))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(411, 411, 411)
-                        .addComponent(jBtEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextEmail)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextEndCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel13)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextEndRua, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextEndEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTextCodTel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(51, 51, 51)
+                                .addComponent(jTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextEndCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel14))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(65, 65, 65)
+                                        .addComponent(jLabel13)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextEndRua, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextEndEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(399, 399, 399)
+                        .addComponent(jBtEnviar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(28, 28, 28)
+                        .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextCodMail)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,16 +275,26 @@ public class TelaCadastroST extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addComponent(jLabel7)))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextCodTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextEmail)
                     .addComponent(jLabel8))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jTextCodMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jBtEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(71, 71, 71)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jBtEnviar)
+                .addContainerGap())
         );
 
         pack();
@@ -274,6 +320,31 @@ public class TelaCadastroST extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBtEnviarActionPerformed
 
+    
+    public void preencherListaCategoria(){
+        CategoriaDAO catdao = new CategoriaDAO();
+        Categoria cat1 = new Categoria();
+        ArrayList<Object> listaCat = catdao.consulta(cat1);
+        String [] dadosCat = new String[listaCat.size()];//Armazena o par, nome e codigo
+        String [] dadosCatCod = new String[listaCat.size()];//Armazena o par, nome e codigo
+        Categoria catRecebida;
+        for(int i = 0; i < listaCat.size(); i++){
+            catRecebida = (Categoria) listaCat.get(i);
+            dadosCat[i]= catRecebida.getNome();
+            dadosCatCod[i] = String.valueOf(catRecebida.getCodigoCategoria());
+        
+        }
+    
+        this.jListCategoria.setListData(dadosCat);//Exibir na caida de lista, as categorias disponiveis
+        //Usar getSelectedIndex com o par de código de categoria
+    
+    
+    
+    
+    }
+    
+    
+    
     public void incluirST(){
         SocioTorcedor st = new SocioTorcedor();//Melhor fazer assim ?
         
@@ -281,10 +352,40 @@ public class TelaCadastroST extends javax.swing.JFrame {
         st.setNome(jTextNome.getText());
         st.setCodigoSt(Integer.parseInt(jTextCod.getText()));
         st.setCpf(jTextCpf.getText());
-        st.setEmail(jTextEmail.getText());
         st.setIdade(Integer.parseInt(jComboIdade.getSelectedItem().toString()));
-        st.setTelefone(jTextTelefone.getText());
+        
+        Telefone novoTel = new Telefone();
+        novoTel.setCodTelefone(Integer.parseInt(jTextCodTel.getText()));
+        novoTel.setNumero(jTextTelefone.getText());
+        
+        ArrayList<Telefone> listTel = new ArrayList<Telefone>();
+        listTel.add(novoTel);
+        
+        st.setTelefone(listTel);
+        
+        Email novoMail = new Email();
+        novoMail.setCodEmail(Integer.parseInt(jTextCodMail.getText()));
+        novoMail.setEndereco(jTextEmail.getText());
+        
+        ArrayList<Email> listMail = new ArrayList<Email>();
+        listMail.add(novoMail);
+        
+        st.setEmail(listMail);
+        
         st.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
+        
+        
+        //Tratamento de email e telefone
+//        Email em1 = new Email();
+//        em1.setEndereco(this.jTextEmail.getText());
+//        st.getEmail().add(em1);//Adiciona a lista, só para testes mesmo
+//        
+//        Telefone tel1 = new Telefone();
+//        tel1.setNumero(this.jTextTelefone.getText());
+//        st.getTelefone().add(tel1);
+        //
+        
+        
         
         //Tratamento endereço
         Endereco end1 = new Endereco();
@@ -418,6 +519,8 @@ public class TelaCadastroST extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -426,7 +529,11 @@ public class TelaCadastroST extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jListCategoria;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextCod;
+    private javax.swing.JTextField jTextCodMail;
+    private javax.swing.JTextField jTextCodTel;
     private javax.swing.JTextField jTextCpf;
     private javax.swing.JTextField jTextEmail;
     private javax.swing.JTextField jTextEndCidade;

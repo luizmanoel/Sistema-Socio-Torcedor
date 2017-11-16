@@ -44,11 +44,11 @@ public class Conexao {//Tratamento das conexoes com o BD
     
     public static Connection conectar(){//Abre conexao
     
-        if(conn == null){//Possivel necessidade de alteracao aqui.
+       // if(conn == null){//Possivel necessidade de alteracao aqui.
         
             new Conexao();
         
-        }
+        //}
         return conn;
     
     

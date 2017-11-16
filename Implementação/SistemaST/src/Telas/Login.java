@@ -8,6 +8,7 @@ package Telas;
 import dao.AdministradorDAO;
 import dao.FuncionarioDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import sistemast.Administrador;
 import sistemast.Funcionario;
 
@@ -18,6 +19,8 @@ import sistemast.Funcionario;
  */
 public class Login extends javax.swing.JFrame {
 
+    private Funcionario ffinal;
+    private Administrador afinal;
     /**
      * Creates new form Login
      */
@@ -116,22 +119,27 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(validacao()){//Se senha e login não estão vazios
             //Buscar no banco e etc...
+            //Provavelmente um objeto adm e func deverá ser passado por parametro, por conta do "meus dados"
             if(checagemLoginAdm()){
                 //System.out.println("Pato2");
                 //Iniciar uma tela p/ admin
-                TelaAdmin tela1 = new TelaAdmin();
+                TelaAdmin tela1 = new TelaAdmin(afinal);//Passa o admin que logou
                 tela1.setVisible(true);
                 this.dispose();
                 
                 
-            }
-            
-            if(checagemLoginFunc()){
+
+            }else if(checagemLoginFunc()){
                 //System.out.println("Pato3");
                 //Iniciar uma tela p/ funcionario
-                TelaFuncionario tela1 = new TelaFuncionario();
+                TelaFuncionario tela1 = new TelaFuncionario(ffinal);//Passa o func. que logou
                 tela1.setVisible(true);
                 this.dispose();
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Falha de Login", JOptionPane.ERROR_MESSAGE);
+                jTextLogin.setText("");
+                jPasswordField1.setText("");
             
             }
         
@@ -171,6 +179,7 @@ public class Login extends javax.swing.JFrame {
             if(this.jTextLogin.getText().equals(String.valueOf(a1.getId()))){//Teste se login e senha conferem //Decisao do parametro
                 if(this.jPasswordField1.getText().equals(a1.getSenha())){//Encontrar alternativa
                 
+                    this.afinal = a1;
                     return true; // Login c/ sucesso
                 }
             
@@ -204,6 +213,7 @@ public class Login extends javax.swing.JFrame {
             
             if(this.jTextLogin.getText().equals(String.valueOf(f1.getId()))){//Teste se login e senha conferem
                 if(this.jPasswordField1.getText().equals(f1.getSenha())){
+                    this.ffinal = f1;
                     return true;
                 
                 }

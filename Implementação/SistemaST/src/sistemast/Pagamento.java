@@ -12,20 +12,34 @@ import java.util.Date;
  * @author rodol
  */
 public class Pagamento {
-    private String categoria;
+
+    /**
+     * @return the data
+     */
+    public String getData() {
+        return data;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(String data) {
+        this.data = data;
+    }
+    private int codigoPagamento;
     private double valor;
     private String detalhesPagamento;
     private boolean pago;
     private int CodigoST;
-    private Date data;//Adição//Usar SimpleDateFormat para receber de string
+    private String data;//Adição//Usar SimpleDateFormat para receber de string
 
   
-    public String getCategoria() {
-        return categoria;
+    public int getCodigoPagamento() {
+        return codigoPagamento;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCodigoPagamento(int codigoPagamento) {
+        this.codigoPagamento = codigoPagamento;
     }
     
     public double getValor() {

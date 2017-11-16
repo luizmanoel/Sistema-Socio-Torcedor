@@ -59,7 +59,7 @@ public class AdministradorDAO implements InterfaceDAO{
             
             statement.execute();
             
-            
+            /*
             //Contato
             sql = "Insert into Contato (Pessoa_idPessoa) values(?)";
             
@@ -81,7 +81,7 @@ public class AdministradorDAO implements InterfaceDAO{
             statement.setString(2, String.valueOf(administrador.getId()));
             
             statement.execute();
-            
+            */
             
             
             Conexao.closeConn();
@@ -94,15 +94,74 @@ public class AdministradorDAO implements InterfaceDAO{
 
         
     }
+    
+    public void delecaoTelefones(String idPessoa){//Deletar os numeros e emails associados das tabelas Email e Telefone
+        //NAO FECHAR CONEXAO NEM ABRIR AQUI, TRATAR NO METODO QUE CHAMAR ESTE
+        try{
+            PreparedStatement statement;
+            sql = "SELECT * FROM Pessoa_Telefone WHERE Pessoa_idPessoa = ?";
+            ResultSet result;
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, idPessoa);//Por id
+            result = statement.executeQuery();
+            
+            while(result.next()){//Pega todos os tels da pessoa com id passado
+                sql = "DELETE FROM Telefone WHERE cod_tel = ? ";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, result.getString("Telefone_cod_tel"));
+                statement.execute();
+            
+            
+            }
+            
+            
+            sql = "SELECT * FROM Pessoa_Email WHERE Pessoa_idPessoa = ?";
+            
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, idPessoa);//Por id
+            result = statement.executeQuery();//Reciclando
+            
+            while(result.next()){
+                sql = "DELETE FROM Email WHERE cod_email = ? ";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, result.getString("Email_cod_email"));
+                statement.execute();
+            
+            
+            }
+            
+            //Tels e Emails Já deletados
+            
+    
+            }catch(SQLException sqlex){
+                Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, sqlex);
+                
+                
+                
+            }
+    
+    
+    }
 
     @Override
     public void exclui(Object obj) {//Exclui um Adm. do BD
         
         try{
             Administrador administrador = (Administrador) obj;
-            sql = "DELETE FROM Pessoa WHERE idPessoa = ?";//Fazemos assim, por conta do BD implementado seguindo "estilo OO". Nele, usamos cascade pra resolver.
+            conn = Conexao.conectar();//Conectou
             
-            conn = Conexao.conectar();
+            
+            //Primeiro, removemos os numeros de telefone de tal pessoa
+            
+            
+            //sql = "DELETE FROM Telefone";//delecaoTelefones(). Continuar
+            this.delecaoTelefones(String.valueOf(administrador.getId()));//Deleta os Tels e Emails
+            
+            
+            
+            sql = "DELETE FROM Pessoa WHERE idPessoa = ?";//Fazemos assim, por conta do BD implementado seguindo "estilo OO". Nele, usamos cascade pra resolver.
+            //Já trata as outras tabelas, pelo cascade
+            
             PreparedStatement statement;
             statement = conn.prepareStatement(sql);
             
@@ -155,7 +214,7 @@ public class AdministradorDAO implements InterfaceDAO{
             statement.setString(3, String.valueOf(administrador.getId()));
             statement.execute();
             
-            
+            /*
             //Contato
             
             sql = "UPDATE Email SET email = ? WHERE Contato_Pessoa_idPessoa = ?";
@@ -171,7 +230,23 @@ public class AdministradorDAO implements InterfaceDAO{
             statement.setString(2, String.valueOf(administrador.getId()));
             
             statement.execute();
+            */
             
+            for(int i = 0; i < administrador.getEmail().size(); i++){//Itera sobre a lista analisada
+                sql = "UPDATE Email SET email = ? WHERE cod_email = ?";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, administrador.getEmail().get(i).getEndereco());
+                statement.setString(2, String.valueOf(administrador.getEmail().get(i).getCodEmail()));//Pega este indice, atualiza o mesmo
+                statement.execute();
+            }
+            
+            for(int i = 0; i < administrador.getTelefone().size(); i++){
+                sql = "UPDATE Telefone SET telefone = ? WHERE cod_tel = ?";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, administrador.getTelefone().get(i).getNumero());
+                statement.setString(2, String.valueOf(administrador.getTelefone().get(i).getCodTelefone()));//Pega este indice, atualiza o mesmo
+                statement.execute();
+            }
             
             
             Conexao.closeConn();

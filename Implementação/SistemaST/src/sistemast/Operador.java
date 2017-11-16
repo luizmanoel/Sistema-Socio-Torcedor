@@ -5,6 +5,7 @@
  */
 package sistemast;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,7 +27,7 @@ public class Operador extends Pessoa {
     
     }
     
-    public Operador(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, String senha){
+    public Operador(String nome, int idade, char sexo, Endereco endereco, String cpf, ArrayList<Telefone> telefone, ArrayList<Email> email, double salario, String senha){
         super.setNome(nome);
         super.setIdade(idade);
         super.setSexo(sexo);
@@ -41,6 +42,8 @@ public class Operador extends Pessoa {
     
     
     }
+    
+    
     
     
     
@@ -90,6 +93,34 @@ public class Operador extends Pessoa {
         double d1 = 0;
         
         return d1;
+    
+    
+    }
+    
+    public String[] numerosTelefone(){
+        String[] vetNumeros = new String[this.getTelefone().size()];
+        for(int i = 0; i < this.getTelefone().size(); i++){
+            vetNumeros[i] = this.getTelefone().get(i).getNumero();
+        
+        
+        }
+    
+        return vetNumeros;
+    
+    
+    }
+    
+    public String[] endEmails(){
+        String[] enderecos = new String[this.getEmail().size()];
+        for(int i = 0; i < this.getTelefone().size(); i++){
+            enderecos[i] = this.getEmail().get(i).getEndereco();
+        
+        
+        }
+    
+        return enderecos;
+    
+    
     
     
     }

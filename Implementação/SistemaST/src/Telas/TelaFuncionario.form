@@ -20,16 +20,57 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Contabilidade"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMenuPagamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pagamento"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuPGListar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Listar Pagamento"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="JMenuPGCadastro">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cadastrar Pagamento"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMenuPGCadastroActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuPGAlterar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Alterar Pagamento"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuPGAlterarActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuPGDeletar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Remover Pagamento"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuPGDeletarActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="listarSocio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Socio"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuListaS">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuListaSActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="cadastrarSocio">
               <Properties>
@@ -42,20 +83,29 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarSocioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuRemoveS">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuRemoveSActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuAlterarDados">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alterar Dados"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuAlterarDadosActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuDelegarCargos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delegar Cargos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuDelegarCargosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -63,6 +113,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Opc&#xf5;es"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu5ActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>

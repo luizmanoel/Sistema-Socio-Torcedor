@@ -5,6 +5,8 @@
  */
 package sistemast;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Luiz Manoel
@@ -14,7 +16,7 @@ public class Funcionario extends Operador{
     private int codigoFuncionario;
     
 
-    public Funcionario(String nome, int idade, char sexo, Endereco endereco, String cpf, String telefone, String email, double salario, String cargo, int codigoFuncionario, String senha){
+    public Funcionario(String nome, int idade, char sexo, Endereco endereco, String cpf, ArrayList<Telefone> telefone, ArrayList<Email> email, double salario, String cargo, int codigoFuncionario, String senha){
         super(nome, idade, sexo, endereco, cpf, telefone, email, salario, senha);
         this.cargo = cargo;
         this.codigoFuncionario = codigoFuncionario;

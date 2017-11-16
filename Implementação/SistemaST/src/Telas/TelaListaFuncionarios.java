@@ -50,7 +50,7 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Lista de Funcionarios");
 
-        jBTSelect.setText("VerDados");
+        jBTSelect.setText("Ver Dados");
         jBTSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTSelectActionPerformed(evt);
@@ -91,8 +91,18 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBTSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSelectActionPerformed
+        //Chamar a tela para listar os dados de um funcionario
+        //TelaVerDadosFuncionario tf = new TelaVerDadosFuncionario();
+        
+        int x = jListFuncs.getSelectedIndex();//Pega pelo valor marcado
+        FuncionarioDAO db = new FuncionarioDAO();
+        Funcionario func = new Funcionario();
+        ArrayList<Object> listaFuncionarios = db.consulta(func);
+        Funcionario funcionario = (Funcionario) listaFuncionarios.get(x);
+        TelaVerDadosFuncionario t = new TelaVerDadosFuncionario(funcionario);
+        t.setVisible(true);
         dispose();
-        preenche();
+        
     }//GEN-LAST:event_jBTSelectActionPerformed
  public void preenche(){
         

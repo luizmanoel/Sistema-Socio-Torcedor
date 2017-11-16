@@ -6,8 +6,10 @@
 package Telas;
 
 import dao.FuncionarioDAO;
+import sistemast.Email;
 import sistemast.Endereco;
 import sistemast.Funcionario;
+import sistemast.Telefone;
 
 /**
  *
@@ -37,16 +39,18 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
         jTextCargo.setText(getFunc().getCargo());
         //jTextCod.setText(String.valueOf(getFunc().getCodigoFuncionario()));
         jTextCpf.setText(getFunc().getCpf());
-        jTextEmail.setText(getFunc().getEmail());
+        
+        //jTextEmail.setText(getFunc().getEmail());//Correção, possível exibição de todos?
+        
         jComboIdade.setSelectedIndex(func.getIdade());      
         if(func.getSexo() == 'F'){
             jComboSexo.setSelectedIndex(0);
         }else{
             jComboSexo.setSelectedIndex(1);
         }
-        jTextSalario.setText(String.valueOf(getFunc().getSalario()));
+        jTextSalario.setText(String.valueOf((int)getFunc().getSalario()));
         getFunc().setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
-        jTextTelefone.setText(getFunc().getTelefone());
+        //jTextTelefone.setText(getFunc().getTelefone());
     }
     
     public void alterarFuncionario(){
@@ -60,11 +64,26 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
         
         func.setCargo(this.jTextCargo.getText());
         func.setCpf(this.jTextCpf.getText());
-        func.setEmail(this.jTextEmail.getText());
+        
+        
+        //Tratamento de email e telefone
+//        Email em1 = new Email();
+//        em1.setEndereco(this.jTextEmail.getText());
+//        func.getEmail().add(em1);//Adiciona a lista, só para testes mesmo
+//        
+//        Telefone tel1 = new Telefone();
+//        tel1.setNumero(this.jTextTelefone.getText());
+//        func.getTelefone().add(tel1);
+        //
+        
+        //func.setEmail(this.jTextEmail.getText());
+        //func.setTelefone(this.jTextTelefone.getText());
+        
+        
         func.setIdade(Integer.parseInt(this.jComboIdade.getSelectedItem().toString()));
         func.setNome(this.jTextNome.getText());
         func.setSexo(jComboSexo.getSelectedItem().toString().charAt(0));
-        func.setTelefone(jTextTelefone.getText());
+        
         func.setSalario(Integer.parseInt(this.jTextSalario.getText()));
         func.setSenha(jTextSenha.getText());
         
@@ -79,7 +98,7 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
     private boolean validacao(){
         
         //Podemos usar labels e setVisible para indicar campos c/ obrigatoriedade
-        if(this.jTextCpf.getText().length() != 9){//CPF c/ 9 digitos
+        if(this.jTextCpf.getText().length() != 11){//CPF c/ 11 digitos
         
             return false;
         }
@@ -167,8 +186,10 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextSenha = new javax.swing.JTextField();
+        jButtonEmail = new javax.swing.JButton();
+        jButtonTelefone = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel11.setText("Cargo");
 
@@ -234,14 +255,24 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
 
         jLabel5.setText("Senha");
 
+        jButtonEmail.setText("Alterar Email");
+        jButtonEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmailActionPerformed(evt);
+            }
+        });
+
+        jButtonTelefone.setText("Alterar Telefone");
+        jButtonTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTelefoneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(329, Short.MAX_VALUE)
-                .addComponent(jBtEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
             .addGroup(layout.createSequentialGroup()
                 .addGap(130, 130, 130)
                 .addComponent(jLabel2)
@@ -249,6 +280,11 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonTelefone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -264,7 +300,7 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                                 .addGap(74, 74, 74))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 35, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -295,19 +331,20 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(35, 35, 35)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextTelefone))
                                     .addComponent(jTextEmail)
-                                    .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))))
+                            .addComponent(jButtonEmail))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -341,7 +378,7 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                     .addComponent(jTextEndEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
@@ -361,8 +398,15 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addComponent(jBtEnviar)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEmail)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jBtEnviar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonTelefone)))
                 .addContainerGap())
         );
 
@@ -381,7 +425,8 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
 
         if(validacao()){
         //Acesso ao BD
-        
+            this.alterarFuncionario();
+            this.dispose();
         
         }
         
@@ -395,6 +440,18 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
     private void jTextSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSalarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextSalarioActionPerformed
+
+    private void jButtonEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmailActionPerformed
+        // TODO add your handling code here:
+        TelaAlterarEmail telaEmail = new TelaAlterarEmail(this.func.getEmail());
+        telaEmail.setVisible(true);
+    }//GEN-LAST:event_jButtonEmailActionPerformed
+
+    private void jButtonTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTelefoneActionPerformed
+        // TODO add your handling code here:
+        TelaAlterarTelefone telaTel = new TelaAlterarTelefone(this.func.getTelefone());
+        telaTel.setVisible(true);
+    }//GEN-LAST:event_jButtonTelefoneActionPerformed
     
    
     /**
@@ -434,6 +491,8 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtEnviar;
+    private javax.swing.JButton jButtonEmail;
+    private javax.swing.JButton jButtonTelefone;
     private javax.swing.JComboBox<String> jComboIdade;
     private javax.swing.JComboBox<String> jComboSexo;
     private javax.swing.JLabel jLabel1;

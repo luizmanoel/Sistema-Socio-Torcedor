@@ -28,15 +28,18 @@ public class PagamentoDAO implements InterfaceDAO{
         
         try{
         Pagamento pagamento = (Pagamento) obj;
-        sql = "Insert into Pagamento (valor, detalhesPagamento, SocioTorcedor_cod_st) values (?, ?, ?)";
+        sql = "Insert into Pagamento (valor, detalhesPagamento, data, SocioTorcedor_cod_st) values (?, ?, ?, ?)";
         conn = Conexao.conectar();
         
+        
+        //Codigo do pagamento é Auto Incrementado
         PreparedStatement statement;
         statement = conn.prepareStatement(sql);
         statement.setString(1, String.valueOf(pagamento.getValor()));
         statement.setString(2, pagamento.getDetalhesPagamento());
         //statement.setString(3, String.valueOf(pagamento.getCodigoST()));//Retirar da tabela isto, desnecessario
-        statement.setString(3, String.valueOf(pagamento.getCodigoST()));
+        statement.setString(3, pagamento.getData());
+        statement.setString(4, String.valueOf(pagamento.getCodigoST()));
         statement.execute();
         Conexao.closeConn();
         
@@ -50,19 +53,19 @@ public class PagamentoDAO implements InterfaceDAO{
     }
 
     @Override
-    public void exclui(Object obj) {
+    public void exclui(Object obj) {//Baseado no codigo do pagamento
         
         try{
             
             Pagamento pagamento = (Pagamento) obj;
             
-            sql = "DELETE FROM Pagamento WHERE SocioTorcedor_cod_st = ?";
+            sql = "DELETE FROM Pagamento WHERE cod_pagamento = ?";
             
             conn = Conexao.conectar();
         
             PreparedStatement statement;
             statement = conn.prepareStatement(sql);
-            statement.setString(1, String.valueOf(pagamento.getCodigoST()));
+            statement.setString(1, String.valueOf(pagamento.getCodigoPagamento()));
             statement.execute();
             Conexao.closeConn();
         
@@ -77,14 +80,14 @@ public class PagamentoDAO implements InterfaceDAO{
     }
 
     @Override
-    public void altera(Object obj) {
+    public void altera(Object obj) {//Baseado no codigo do pagamento
         
         
         try{
             
             Pagamento pagamento = (Pagamento) obj;
             
-            sql = "UPDATE Pagamento SET valor = ?, detalhesPagamento = ? WHERE SocioTorcedor_cod_st = ? ";
+            sql = "UPDATE Pagamento SET valor = ?, detalhesPagamento = ?, data = ? WHERE cod_pagamento = ? ";
             
             conn = Conexao.conectar();
         
@@ -92,7 +95,8 @@ public class PagamentoDAO implements InterfaceDAO{
             statement = conn.prepareStatement(sql);
             statement.setString(1, String.valueOf(pagamento.getValor()));
             statement.setString(2, String.valueOf(pagamento.getDetalhesPagamento()));
-            statement.setString(3, String.valueOf(pagamento.getCodigoST()));
+            statement.setString(3, String.valueOf(pagamento.getData()));
+            statement.setString(4, String.valueOf(pagamento.getCodigoPagamento()));
             statement.execute();
             Conexao.closeConn();
         
@@ -127,9 +131,11 @@ public class PagamentoDAO implements InterfaceDAO{
 
             while(result.next()){
                 Pagamento pagamento2 = new Pagamento();
+                pagamento2.setCodigoPagamento(result.getInt("cod_pagamento"));
                 pagamento2.setValor(result.getDouble("valor"));
                 pagamento2.setDetalhesPagamento(result.getNString("detalhesPagamento"));
                 pagamento2.setCodigoST(result.getInt("SocioTorcedor_cod_st"));
+                pagamento2.setData(result.getNString("data"));
 
                 lista.add(pagamento2);
 

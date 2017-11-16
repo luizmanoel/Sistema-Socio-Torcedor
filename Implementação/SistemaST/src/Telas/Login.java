@@ -123,7 +123,7 @@ public class Login extends javax.swing.JFrame {
             if(checagemLoginAdm()){
                 //System.out.println("Pato2");
                 //Iniciar uma tela p/ admin
-                TelaAdmin tela1 = new TelaAdmin();
+                TelaAdmin tela1 = new TelaAdmin(afinal);//Passa o admin que logou
                 tela1.setVisible(true);
                 this.dispose();
                 
@@ -132,7 +132,7 @@ public class Login extends javax.swing.JFrame {
             }else if(checagemLoginFunc()){
                 //System.out.println("Pato3");
                 //Iniciar uma tela p/ funcionario
-                TelaFuncionario tela1 = new TelaFuncionario();
+                TelaFuncionario tela1 = new TelaFuncionario(ffinal);//Passa o func. que logou
                 tela1.setVisible(true);
                 this.dispose();
             

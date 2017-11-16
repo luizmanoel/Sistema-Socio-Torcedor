@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaListaDeSTs.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaFuncionario.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaCadastroST.java</file>
@@ -15,6 +16,13 @@
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/dao/AdministradorDAO.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/Login.java</file>
             <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaAdmin.java</file>
+=======
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaListaDeAlteracaoPagamento.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaCadastroPagamento.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaFuncionario.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaAdmin.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaAlterarPagamento.java</file>
+>>>>>>> bc27be28985dabb3f0ca9df5de15eeed3f7c040e
         </group>
     </open-files>
 </project-private>

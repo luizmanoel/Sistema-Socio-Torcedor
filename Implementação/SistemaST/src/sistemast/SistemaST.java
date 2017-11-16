@@ -20,10 +20,50 @@ public class SistemaST {
      */
     public static void main(String[] args) {
         
-Categoria cat1 = new Categoria();
+
+            
             Login t = new Login();
             t.setLocationRelativeTo(null);
             t.setVisible(true);
+       
+            /*
+            Categoria cat1 = new Categoria();
+            cat1.setCodigoCategoria(11211);
+            cat1.setNome("Categoria1");
+            cat1.setBeneficios("Varios beneficios");
+            cat1.setValorMensalidade(100);
+            CategoriaDAO catdao = new CategoriaDAO();
+            catdao.adiciona(cat1);
+            
+            SocioTorcedor st = new SocioTorcedor();
+            st.setCodigoSt(12);
+            st.setCpf("09849210605");
+            
+            
+            
+            st.setIdade(22);
+            st.setNome("Luiz Manoel dos Santos");
+            st.setSexo('M');
+            st.setCategoria(cat1);
+            st.setId(2323);
+            
+            SocioTorcedorDAO stdao= new SocioTorcedorDAO(); 
+            stdao.adiciona(st);
+            
+            
+            Telefone tel = new Telefone();
+            tel.setCodTelefone(1);
+            tel.setNumero("1234456788");
+            st.getTelefone().add(tel);
+            */
+            
+            
+            
+            
+            
+            
+            
+            
 //        cat1.setCodigoCategoria(11211);
 //        cat1.setNome("Categoria1");
 //        cat1.setBeneficios("Varios beneficios");

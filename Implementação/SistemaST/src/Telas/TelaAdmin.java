@@ -49,7 +49,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         JMenuPGCadastro = new javax.swing.JMenuItem();
         jMenuPGAlterar = new javax.swing.JMenuItem();
         jMenuPGDeletar = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemRelatorioPagamento = new javax.swing.JMenuItem();
         listarSocio = new javax.swing.JMenu();
         jMenuCategoria = new javax.swing.JMenu();
         jMenuCadastrarCategoria = new javax.swing.JMenuItem();
@@ -117,8 +117,13 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         relatorioFinanceiro.add(jMenuPagamento);
 
-        jMenuItem2.setText("Relatório Financeiro");
-        relatorioFinanceiro.add(jMenuItem2);
+        jMenuItemRelatorioPagamento.setText("Relatório Financeiro");
+        jMenuItemRelatorioPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatorioPagamentoActionPerformed(evt);
+            }
+        });
+        relatorioFinanceiro.add(jMenuItemRelatorioPagamento);
 
         jMenuBar1.add(relatorioFinanceiro);
 
@@ -333,6 +338,12 @@ public class TelaAdmin extends javax.swing.JFrame {
         cadastraCat.setVisible(true);
     }//GEN-LAST:event_jMenuCadastrarCategoriaActionPerformed
 
+    private void jMenuItemRelatorioPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioPagamentoActionPerformed
+        // TODO add your handling code here:
+        TelaRelatorioPagamento relatorio = new TelaRelatorioPagamento();
+        relatorio.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRelatorioPagamentoActionPerformed
+
     
     
     
@@ -388,11 +399,11 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuCategoria;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItemRelatorioPagamento;
     private javax.swing.JMenuItem jMenuItemRemoverST;
     private javax.swing.JMenuItem jMenuPGAlterar;
     private javax.swing.JMenuItem jMenuPGDeletar;

@@ -22,6 +22,7 @@ import sistemast.Telefone;
 public class TelaCadastroST extends javax.swing.JFrame {
 
     //private SocioTorcedor st;
+    private String [] dadosCatCod;
 
     /**
      * Creates new form TelaCadastroST
@@ -326,12 +327,12 @@ public class TelaCadastroST extends javax.swing.JFrame {
         Categoria cat1 = new Categoria();
         ArrayList<Object> listaCat = catdao.consulta(cat1);
         String [] dadosCat = new String[listaCat.size()];//Armazena o par, nome e codigo
-        String [] dadosCatCod = new String[listaCat.size()];//Armazena o par, nome e codigo
+        this.dadosCatCod = new String[listaCat.size()];//Armazena o par, nome e codigo
         Categoria catRecebida;
         for(int i = 0; i < listaCat.size(); i++){
             catRecebida = (Categoria) listaCat.get(i);
             dadosCat[i]= catRecebida.getNome();
-            dadosCatCod[i] = String.valueOf(catRecebida.getCodigoCategoria());
+            this.dadosCatCod[i] = String.valueOf(catRecebida.getCodigoCategoria());
         
         }
     
@@ -401,13 +402,18 @@ public class TelaCadastroST extends javax.swing.JFrame {
         //Tratar Categoria
         
         //Para testes
-        Categoria cat1 = new Categoria();
-        cat1.setBeneficios("Varios beneficios");
-        cat1.setValorMensalidade(100);
-        cat1.setCodigoCategoria(11211);
-        cat1.setNome("Categoria1");
-        st.setCategoria(cat1);
+//        Categoria cat1 = new Categoria();
+//        cat1.setBeneficios("Varios beneficios");
+//        cat1.setValorMensalidade(100);
+//        cat1.setCodigoCategoria(11211);
+//        cat1.setNome("Categoria1");
+//        st.setCategoria(cat1);
         
+//Passivel de solucao temporaria
+        Categoria cat1 = new Categoria();
+        cat1.setCodigoCategoria(Integer.parseInt(this.dadosCatCod[this.jListCategoria.getSelectedIndex()]));//SOmente o código eh necessario
+        
+        st.setCategoria(cat1);
         
         
         SocioTorcedorDAO stdao = new SocioTorcedorDAO();

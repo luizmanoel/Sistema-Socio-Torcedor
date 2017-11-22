@@ -400,8 +400,8 @@ public class SocioTorcedorDAO implements InterfaceDAO{
                 
                 while(rfone.next()){//Todos da Query
                     Telefone temptel = new Telefone();
-                    temptel.setCodTelefone(rmail.getInt("cod_tel"));//Cod 
-                    temptel.setNumero(rmail.getString("telefone"));//Telefone
+                    temptel.setCodTelefone(rfone.getInt("cod_tel"));//Cod 
+                    temptel.setNumero(rfone.getString("telefone"));//Telefone
                     listaTel.add(temptel);
                     
                     

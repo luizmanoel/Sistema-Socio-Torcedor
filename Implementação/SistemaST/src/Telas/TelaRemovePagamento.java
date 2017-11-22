@@ -36,7 +36,7 @@ public class TelaRemovePagamento extends javax.swing.JFrame {
             Pagamento p;
             for(int i = 0; i < listaPags.size(); i++){
                 p = (Pagamento) listaPags.get(i);
-                dados[i] = p.getData() + "Codigo do Socio: " + p.getCodigoST(); //Adiciona cada um como dados do pagamento
+                dados[i] = p.getData() + " Codigo do Socio: " + p.getCodigoST(); //Adiciona cada um como dados do pagamento
             }
             jListPagamentos.setListData(dados);       
     }

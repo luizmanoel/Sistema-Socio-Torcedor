@@ -16,7 +16,7 @@ import sistemast.SocioTorcedor;
  *
  * @author antonio
  */
-public class TelaRelatorioPagamento extends javax.swing.JFrame {
+public class TelaRelatorioST extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaRelatorioPagamento
@@ -24,9 +24,8 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
     
     Relatorio rel = new Relatorio();
     
-    public TelaRelatorioPagamento() {
+    public TelaRelatorioST() {
         initComponents();
-        preenche();
     }
     
     public void criaRelatorio(){
@@ -42,13 +41,15 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
         ArrayList<Pagamento> listaPag = new ArrayList<>();
         
         String filtroData = this.jTextField1.getText();//Tratamento de filtros
-        int filtroST = this.checaMarcado();
+        
+        
+        
         
         for(int i = 0; i < lista.size(); i++){
             Pagamento novoPag = (Pagamento) lista.get(i);
             
             
-            if(novoPag.aplicaFiltroData(filtroData) && novoPag.aplicaFiltroST(filtroST)){//Se passar pelos filtros
+            if(novoPag.aplicaFiltroData(filtroData)){//Se passar pelos filtros
                 listaPag.add(novoPag);//Adicionamos a nosso relatorio
             }
             
@@ -62,52 +63,7 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
     
     }
     
-    public void preenche(){
-        
-           // para preencher a lista:
-            SocioTorcedorDAO db = new SocioTorcedorDAO();
-            SocioTorcedor st = new SocioTorcedor();
-            ArrayList<Object> listaSTs = db.consulta(st);
-            String[] dados = new String[listaSTs.size()+1];//+1, pela opção de não selecionar ninguem
-            SocioTorcedor socio;
-            for(int i = 0; i < listaSTs.size(); i++){
-                socio = (SocioTorcedor) listaSTs.get(i);
-                dados[i] = socio.getNome();
-            }
-            dados[listaSTs.size()] = "Todos";
-            jListSTs.setListData(dados);
-            
-    }
     
-    public int checaMarcado(){
-        
-        if(jListSTs.isSelectionEmpty()){//Não selecionou ninguém
-            return -1;
-        
-        }
-        
-        
-        
-       int x = jListSTs.getSelectedIndex();//Pega pelo valor marcado
-       
-       
-       SocioTorcedorDAO db = new SocioTorcedorDAO();
-       SocioTorcedor st = new SocioTorcedor();
-       ArrayList<Object> listaSTs = db.consulta(st);
-       
-       if(x == listaSTs.size()){
-           return -1;//Selecionou todos
-       
-       }
-       
-       SocioTorcedor socio = (SocioTorcedor) listaSTs.get(x);
-       
-       
-       
-       return socio.getCodigoSt();
-    
-    
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -125,10 +81,8 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListSTs = new javax.swing.JList<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonGerarRelatorio.setText("Gerar Relatório");
         jButtonGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -143,13 +97,6 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
 
         jLabel3.setText("Filtro de Socio Torcedor");
 
-        jListSTs.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jListSTs);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,18 +108,15 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
                         .addGap(0, 453, Short.MAX_VALUE)
                         .addComponent(jButtonGerarRelatorio))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField1)
                                 .addComponent(jTextField2))
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -181,15 +125,12 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addComponent(jTextFieldRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,8 +188,6 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jListSTs;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextFieldRelatorio;

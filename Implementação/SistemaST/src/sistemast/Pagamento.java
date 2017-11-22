@@ -88,4 +88,40 @@ public class Pagamento {
     
     }
     
+    public boolean aplicaFiltroData(String filtroData){
+            if(filtroData.equals("")){//Nada foi passado
+                return true;
+            
+            
+            }else if(filtroData.equals(this.data)){//Data confere
+            
+                return true;
+            }
+            
+            return false;//Se tudo falhar
+            
+            
+    
+    
+    
+    }
+    
+    public boolean aplicaFiltroST(int filtroST){
+            if(filtroST == -1){//-1, significa que o usuario nao esta usando este filtro
+                return true;
+            
+            
+            }else if(filtroST == this.CodigoST){//Data confere
+            
+                return true;
+            }
+            
+            return false;//Se tudo falhar
+            
+            
+    
+    
+    
+    }
+    
 }

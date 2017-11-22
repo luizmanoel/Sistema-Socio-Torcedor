@@ -57,5 +57,41 @@ public class Funcionario extends Operador{
         this.codigoFuncionario = codigoFuncionario;
     }
     
+    @Override
+    public String toString(){//Em construcao
+        
+        String dadosFunc = super.toString();
+        
+        return dadosFunc;
+    
+    
+    }
+    
+    
+    
+    public String[] toStringDataArray(){
+        String[] dados = new String[9];
+        
+        dados[0] = this.getNome();
+        dados[1] = this.getCargo();
+        dados[2] = this.getCpf();
+        dados[3] = String.valueOf(this.getSexo());
+        dados[4] = String.valueOf(this.getIdade());
+        
+        String endsEmail = this.emailStringify();
+        String telefones = this.telefoneStringify();
+        
+        
+        dados[5] = endsEmail;
+        dados[6] = telefones;
+        dados[7] = String.valueOf(this.getId());
+        dados[8] = String.valueOf(this.getSalario());
+        
+        return dados;
+        
+    
+    
+    
+    }
     
 }

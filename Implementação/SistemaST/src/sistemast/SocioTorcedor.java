@@ -55,6 +55,34 @@ public class SocioTorcedor extends Pessoa {
         this.codigoSt = 0;
 
     }
+    
+    public String[] numerosTelefone(){
+        String[] vetNumeros = new String[this.getTelefone().size()];
+        for(int i = 0; i < this.getTelefone().size(); i++){
+            vetNumeros[i] = this.getTelefone().get(i).getNumero();
+        
+        
+        }
+    
+        return vetNumeros;
+    
+    
+    }
+    
+    public String[] endEmails(){
+        String[] enderecos = new String[this.getEmail().size()];
+        for(int i = 0; i < this.getTelefone().size(); i++){
+            enderecos[i] = this.getEmail().get(i).getEndereco();
+        
+        
+        }
+    
+        return enderecos;
+    
+    
+    
+    
+    }
 
      
     public SocioTorcedor(String nome, int idade, char sexo, Endereco endereco, String cpf, ArrayList<Telefone> telefone, ArrayList<Email> email){
@@ -72,6 +100,56 @@ public class SocioTorcedor extends Pessoa {
 
     public void pagaMensalidade(int codigoSt) {//Necessário BD
 
+    }
+    
+    public String[] toStringDataArray(){//Adaptada
+        String[] dados = new String[8];
+        
+        dados[0] = this.getNome();
+        dados[1] = this.getCategoria().getNome();
+        dados[2] = this.getCpf();
+        dados[3] = String.valueOf(this.getSexo());
+        dados[4] = String.valueOf(this.getIdade());
+        
+        String endsEmail = this.emailStringify();
+        String telefones = this.telefoneStringify();
+        
+        
+        dados[5] = endsEmail;
+        dados[6] = telefones;
+        dados[7] = String.valueOf(this.getId());
+        
+        
+        return dados;
+        
+    
+    
+    
+    }
+    
+    public String emailStringify(){
+        String endsEmail = "";
+        String telefones = "";
+        for(int i = 0; i < this.getEmail().size(); i++){
+            endsEmail = endsEmail + this.getEmail().get(i).getEndereco() + "\n";
+        
+        
+        }
+        return endsEmail;
+    
+    
+    }
+    public String telefoneStringify(){
+        
+        String telefones = "";
+        for(int i = 0; i < this.getEmail().size(); i++){
+            telefones = telefones + this.getTelefone().get(i).getNumero()+ "\n";
+        
+        
+        }
+        return telefones;
+    
+    
     }
 
 }

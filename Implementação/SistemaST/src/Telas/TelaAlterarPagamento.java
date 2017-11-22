@@ -53,7 +53,7 @@ public class TelaAlterarPagamento extends javax.swing.JFrame {
         
         
         pagAlt.setData(this.jTextFieldData.getText());
-        //pagAlt.setValor();
+        pagAlt.setValor(Double.valueOf(this.jTextFieldValor.getText()));
         pagAlt.setDetalhesPagamento(this.jTextArea1.getText());
         PagamentoDAO pagDAO = new PagamentoDAO(); 
         pagDAO.altera(pagAlt);

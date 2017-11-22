@@ -22,6 +22,7 @@ import sistemast.Telefone;
 public class TelaCadastroST extends javax.swing.JFrame {
 
     //private SocioTorcedor st;
+    private String [] dadosCatCod;
 
     /**
      * Creates new form TelaCadastroST
@@ -327,12 +328,12 @@ public class TelaCadastroST extends javax.swing.JFrame {
         Categoria cat1 = new Categoria();
         ArrayList<Object> listaCat = catdao.consulta(cat1);
         String [] dadosCat = new String[listaCat.size()];//Armazena o par, nome e codigo
-        String [] dadosCatCod = new String[listaCat.size()];//Armazena o par, nome e codigo
+        this.dadosCatCod = new String[listaCat.size()];//Armazena o par, nome e codigo
         Categoria catRecebida;
         for(int i = 0; i < listaCat.size(); i++){
             catRecebida = (Categoria) listaCat.get(i);
             dadosCat[i]= catRecebida.getNome();
-            dadosCatCod[i] = String.valueOf(catRecebida.getCodigoCategoria());
+            this.dadosCatCod[i] = String.valueOf(catRecebida.getCodigoCategoria());
         
         }
     
@@ -402,13 +403,18 @@ public class TelaCadastroST extends javax.swing.JFrame {
         //Tratar Categoria
         
         //Para testes
-        Categoria cat1 = new Categoria();
-        cat1.setBeneficios("Varios beneficios");
-        cat1.setValorMensalidade(100);
-        cat1.setCodigoCategoria(11211);
-        cat1.setNome("Categoria1");
-        st.setCategoria(cat1);
+//        Categoria cat1 = new Categoria();
+//        cat1.setBeneficios("Varios beneficios");
+//        cat1.setValorMensalidade(100);
+//        cat1.setCodigoCategoria(11211);
+//        cat1.setNome("Categoria1");
+//        st.setCategoria(cat1);
         
+//Passivel de solucao temporaria
+        Categoria cat1 = new Categoria();
+        cat1.setCodigoCategoria(Integer.parseInt(this.dadosCatCod[this.jListCategoria.getSelectedIndex()]));//SOmente o código eh necessario
+        
+        st.setCategoria(cat1);
         
         
         SocioTorcedorDAO stdao = new SocioTorcedorDAO();
@@ -477,37 +483,37 @@ public class TelaCadastroST extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastroST().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaCadastroST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TelaCadastroST().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtEnviar;

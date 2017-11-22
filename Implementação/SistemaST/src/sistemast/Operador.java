@@ -153,6 +153,38 @@ public class Operador extends Pessoa {
         this.senha = senha;
     }
     
+    @Override
+    public String toString(){
+        String dados = ("Nome:" + this.getNome() + "Cpf:" + this.getCpf());
     
+    
+        return dados;
+        
+    }
+    
+    public String emailStringify(){
+        String endsEmail = "";
+        String telefones = "";
+        for(int i = 0; i < this.getEmail().size(); i++){
+            endsEmail = endsEmail + this.getEmail().get(i).getEndereco() + "\n";
+        
+        
+        }
+        return endsEmail;
+    
+    
+    }
+    public String telefoneStringify(){
+        
+        String telefones = "";
+        for(int i = 0; i < this.getEmail().size(); i++){
+            telefones = telefones + this.getTelefone().get(i).getNumero()+ "\n";
+        
+        
+        }
+        return telefones;
+    
+    
+    }
     
 }

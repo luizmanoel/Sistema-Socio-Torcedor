@@ -28,15 +28,15 @@ public class CategoriaDAO implements InterfaceDAO{
         try{
             
             Categoria categoria = (Categoria) obj;
-            sql = "Insert into Categoria (cod_categoria, nome, beneficios, valor_mensalidade) values (?, ?, ?, ?)";
+            sql = "Insert into Categoria (nome, beneficios, valor_mensalidade) values (?, ?, ?)";
             conn = Conexao.conectar();
             
             PreparedStatement statement;
             statement = conn.prepareStatement(sql);
-            statement.setString(1, String.valueOf(categoria.getCodigoCategoria()));
-            statement.setString(2, categoria.getNome());
-            statement.setString(3, categoria.getBeneficios());
-            statement.setString(4, String.valueOf(categoria.getValorMensalidade()));
+            //statement.setString(1, String.valueOf(categoria.getCodigoCategoria()));//Agora eh auto increment
+            statement.setString(1, categoria.getNome());
+            statement.setString(2, categoria.getBeneficios());
+            statement.setString(3, String.valueOf(categoria.getValorMensalidade()));
             
             statement.execute();
             Conexao.closeConn();

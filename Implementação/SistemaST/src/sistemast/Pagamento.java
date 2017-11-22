@@ -74,4 +74,18 @@ public class Pagamento {
         this.CodigoST = CodigoST;
     }
     
+    public String[] toStringDataArray(){
+        String[] dados = new String[3];
+        
+        dados[0] = this.getData();
+        dados[1] = this.getDetalhesPagamento();
+        dados[2] = String.valueOf(this.getCodigoST());
+        
+        return dados;
+        
+    
+    
+    
+    }
+    
 }

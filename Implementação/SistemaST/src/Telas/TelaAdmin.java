@@ -43,6 +43,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MeusDados = new javax.swing.JMenuItem();
+        jMenuMeusAlterar = new javax.swing.JMenuItem();
         relatorioFinanceiro = new javax.swing.JMenu();
         jMenuPagamento = new javax.swing.JMenu();
         jMenuPGListar = new javax.swing.JMenuItem();
@@ -53,6 +54,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         listarSocio = new javax.swing.JMenu();
         jMenuCategoria = new javax.swing.JMenu();
         jMenuCadastrarCategoria = new javax.swing.JMenuItem();
+        jMenuItemRemoverCategoria = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         cadastrarSocio = new javax.swing.JMenuItem();
         jMenuItemRemoverST = new javax.swing.JMenuItem();
@@ -81,6 +83,14 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         jMenu1.add(MeusDados);
+
+        jMenuMeusAlterar.setText("Alterar Meus Dados");
+        jMenuMeusAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuMeusAlterarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuMeusAlterar);
 
         jMenuBar1.add(jMenu1);
 
@@ -143,6 +153,14 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         jMenuCategoria.add(jMenuCadastrarCategoria);
+
+        jMenuItemRemoverCategoria.setText("Remover");
+        jMenuItemRemoverCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRemoverCategoriaActionPerformed(evt);
+            }
+        });
+        jMenuCategoria.add(jMenuItemRemoverCategoria);
 
         listarSocio.add(jMenuCategoria);
 
@@ -355,6 +373,18 @@ public class TelaAdmin extends javax.swing.JFrame {
         telaAdm1.setVisible(true);
     }//GEN-LAST:event_MeusDadosActionPerformed
 
+    private void jMenuItemRemoverCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRemoverCategoriaActionPerformed
+        // TODO add your handling code here:
+        TelaRemoveCategoria telaRC1 = new TelaRemoveCategoria();
+        telaRC1.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRemoverCategoriaActionPerformed
+
+    private void jMenuMeusAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuMeusAlterarActionPerformed
+        // TODO add your handling code here:
+        TelaAlterarAdmin telaAAdm1 = new TelaAlterarAdmin(this.meuadmin);
+        telaAAdm1.setVisible(true);
+    }//GEN-LAST:event_jMenuMeusAlterarActionPerformed
+
     
     
     
@@ -415,7 +445,9 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItemRelatorioPagamento;
+    private javax.swing.JMenuItem jMenuItemRemoverCategoria;
     private javax.swing.JMenuItem jMenuItemRemoverST;
+    private javax.swing.JMenuItem jMenuMeusAlterar;
     private javax.swing.JMenuItem jMenuPGAlterar;
     private javax.swing.JMenuItem jMenuPGDeletar;
     private javax.swing.JMenuItem jMenuPGListar;

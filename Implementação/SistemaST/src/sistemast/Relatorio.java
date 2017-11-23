@@ -44,7 +44,7 @@ public class Relatorio {
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Erro ao criar o relatório. Detalhes: " + e.getMessage(), "Relatório", 0);//Se falhar na criação, gera erro
-        
+            
         
         }
         

@@ -116,7 +116,13 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBTSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTSelectActionPerformed
-       int x = jListSTs.getSelectedIndex();//Pega pelo valor marcado
+        if(jListSTs.isSelectionEmpty()){//Não selecionou ninguém
+            return;
+        
+        }
+        
+        
+        int x = jListSTs.getSelectedIndex();//Pega pelo valor marcado
        SocioTorcedorDAO db = new SocioTorcedorDAO();
        SocioTorcedor st = new SocioTorcedor();
        ArrayList<Object> listaSTs = db.consulta(st);

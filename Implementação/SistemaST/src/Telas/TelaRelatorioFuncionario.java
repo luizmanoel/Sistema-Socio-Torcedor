@@ -5,9 +5,11 @@
  */
 package Telas;
 
+import dao.FuncionarioDAO;
 import dao.PagamentoDAO;
 import dao.SocioTorcedorDAO;
 import java.util.ArrayList;
+import sistemast.Funcionario;
 import sistemast.Pagamento;
 import sistemast.Relatorio;
 import sistemast.SocioTorcedor;
@@ -16,7 +18,7 @@ import sistemast.SocioTorcedor;
  *
  * @author antonio
  */
-public class TelaRelatorioST extends javax.swing.JFrame {
+public class TelaRelatorioFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaRelatorioPagamento
@@ -24,8 +26,9 @@ public class TelaRelatorioST extends javax.swing.JFrame {
     
     Relatorio rel = new Relatorio();
     
-    public TelaRelatorioST() {
+    public TelaRelatorioFuncionario() {
         initComponents();
+        
     }
     
     public void criaRelatorio(){
@@ -34,34 +37,34 @@ public class TelaRelatorioST extends javax.swing.JFrame {
             rel.setIdRelatorio(Integer.parseInt(this.jTextFieldRelatorio.getText()));
         }
         
-        SocioTorcedor socio = new SocioTorcedor();
-        SocioTorcedorDAO stDAO = new SocioTorcedorDAO();
+        Funcionario func = new Funcionario();
+        FuncionarioDAO funcDAO = new FuncionarioDAO();
         
-        ArrayList<Object> lista = stDAO.consulta(socio);
-        ArrayList<SocioTorcedor> listaST = new ArrayList<>();
+        ArrayList<Object> lista = funcDAO.consulta(func);
+        ArrayList<Funcionario> listaFunc = new ArrayList<>();
         
         String filtroIdade = this.jTextField1.getText();//Tratamento de filtros
         
         
-        
-        
         for(int i = 0; i < lista.size(); i++){
-            SocioTorcedor novoST = (SocioTorcedor) lista.get(i);
+            Funcionario novoFunc = (Funcionario) lista.get(i);
             
             
-            if(novoST.aplicaFiltroData(filtroIdade)){//Se passar pelos filtros
-                listaST.add(novoST);//Adicionamos a nosso relatorio
+            if(novoFunc.aplicaFiltroData(filtroIdade)){//Se passar pelos filtros
+                listaFunc.add(novoFunc);//Adicionamos a nosso relatorio
             }
             
         }
         
-        rel.gerarRelatorioSocioTorcedor(listaST);
+        rel.gerarRelatorioFuncionario(listaFunc);
         
         
     
     
     
     }
+    
+    
     
     
 
@@ -80,7 +83,7 @@ public class TelaRelatorioST extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButtonGerarRelatorio.setText("Gerar Relatório");
         jButtonGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +94,7 @@ public class TelaRelatorioST extends javax.swing.JFrame {
 
         jLabel1.setText("ID do Relatório");
 
-        jLabel2.setText("Filtro de Idade");
+        jLabel2.setText("Filtro de Data");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +104,7 @@ public class TelaRelatorioST extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 453, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonGerarRelatorio))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +113,7 @@ public class TelaRelatorioST extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField1))
                             .addComponent(jLabel2))
-                        .addGap(0, 491, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

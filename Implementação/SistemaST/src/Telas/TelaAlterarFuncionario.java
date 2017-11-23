@@ -45,6 +45,13 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
         jTextEndEstado.setText(getFunc().getEndereco().getEndEstado());
         //jTextEmail.setText(getFunc().getEmail());//Correção, possível exibição de todos?
         
+        this.jTextEndNum.setText(getFunc().getEndereco().getEndNum());
+        this.jTextEndRua.setText(getFunc().getEndereco().getEndRua());
+        this.jTextEndCidade.setText(getFunc().getEndereco().getEndCidade());
+        this.jTextEndEstado.setText(getFunc().getEndereco().getEndEstado());//Email, Telefone X
+        
+        
+        
         jComboIdade.setSelectedIndex(func.getIdade());      
         if(func.getSexo() == 'F'){
             jComboSexo.setSelectedIndex(0);
@@ -288,7 +295,7 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                                 .addGap(74, 74, 74))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 35, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -362,7 +369,11 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                     .addComponent(jTextEndEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+>>>>>>> 321b6285fa686bd5644541284efec0382b7b64ca
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -374,8 +385,15 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                     .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
+=======
+                    .addComponent(jLabel5)
+                    .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addComponent(jButtonEmail)
+>>>>>>> 321b6285fa686bd5644541284efec0382b7b64ca
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)

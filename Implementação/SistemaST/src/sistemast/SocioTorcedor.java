@@ -151,5 +151,16 @@ public class SocioTorcedor extends Pessoa {
     
     
     }
+    
+    public boolean checaCategoria(Categoria cat1){//Checa se são da mesma categoria
+        if(cat1.getCodigoCategoria() == this.categoria.getCodigoCategoria()){
+            return true;
+        }
+        return false;
+    
+    
+    
+    
+    }
 
 }

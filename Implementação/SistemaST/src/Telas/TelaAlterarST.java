@@ -5,7 +5,9 @@
  */
 package Telas;
 
+import dao.CategoriaDAO;
 import dao.SocioTorcedorDAO;
+import java.util.ArrayList;
 import sistemast.Categoria;
 import sistemast.Email;
 import sistemast.Endereco;
@@ -18,6 +20,8 @@ import sistemast.Telefone;
  */
 public class TelaAlterarST extends javax.swing.JFrame {
 
+    
+    private String [] dadosCatCod;
     /**
      * @return the st
      */
@@ -43,6 +47,29 @@ public class TelaAlterarST extends javax.swing.JFrame {
         this.st = st;
         initComponents();
         preenche();    
+    }
+    
+    
+    public void preencherListaCategoria(){
+        CategoriaDAO catdao = new CategoriaDAO();
+        Categoria cat1 = new Categoria();
+        ArrayList<Object> listaCat = catdao.consulta(cat1);
+        String [] dadosCat = new String[listaCat.size()];//Armazena o par, nome e codigo
+        this.dadosCatCod = new String[listaCat.size()];//Armazena o par, nome e codigo
+        Categoria catRecebida;
+        for(int i = 0; i < listaCat.size(); i++){
+            catRecebida = (Categoria) listaCat.get(i);
+            dadosCat[i]= catRecebida.getNome();
+            this.dadosCatCod[i] = String.valueOf(catRecebida.getCodigoCategoria());
+        
+        }
+    
+        this.jListCategoria.setListData(dadosCat);//Exibir na caida de lista, as categorias disponiveis
+        //Usar getSelectedIndex com o par de código de categoria
+    
+    
+    
+    
     }
 
     /**
@@ -79,6 +106,8 @@ public class TelaAlterarST extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jButtonEmail = new javax.swing.JButton();
         jButtonTelefone = new javax.swing.JButton();
+        jListCategoria = new javax.swing.JList<>();
+        jLabelCategoria = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -141,6 +170,14 @@ public class TelaAlterarST extends javax.swing.JFrame {
                 jButtonTelefoneActionPerformed(evt);
             }
         });
+
+        jListCategoria.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+
+        jLabelCategoria.setText("Categoria");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,6 +253,12 @@ public class TelaAlterarST extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBtEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCategoria)
+                    .addComponent(jListCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +290,11 @@ public class TelaAlterarST extends javax.swing.JFrame {
                     .addComponent(jTextEndEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jLabelCategoria)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jListCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -323,18 +370,23 @@ public class TelaAlterarST extends javax.swing.JFrame {
         }else{
             jComboSexo.setSelectedIndex(1);
         }
+        
+        this.preencherListaCategoria();
     }
     
     public void alterarST(){
         
                 //Para testes, alterar depois
-        Categoria cat1 = new Categoria();
-        cat1.setBeneficios("Varios beneficios");
-        cat1.setValorMensalidade(100);
-        cat1.setCodigoCategoria(11211);
-        cat1.setNome("Categoria1");
-        getSt().setCategoria(cat1);
+//        Categoria cat1 = new Categoria();
+//        cat1.setBeneficios("Varios beneficios");
+//        cat1.setValorMensalidade(100);
+//        cat1.setCodigoCategoria(11211);
+//        cat1.setNome("Categoria1");
+//        getSt().setCategoria(cat1);
         
+        
+        Categoria cat1 = new Categoria();
+        cat1.setCodigoCategoria(Integer.parseInt(this.dadosCatCod[this.jListCategoria.getSelectedIndex()]));//SOmente o código eh necessario
         
         getSt().setCategoria(cat1);
         
@@ -383,10 +435,10 @@ public class TelaAlterarST extends javax.swing.JFrame {
             return false;
         }
         
-        if(this.jTextEmail.getText().equals("")){
-        
-            return false;
-        }
+//        if(this.jTextEmail.getText().equals("")){
+//        
+//            return false;
+//        }
         
         //if(this.jTextEndereco){}//resolver
         if(this.jTextNome.getText().equals("")){
@@ -394,9 +446,9 @@ public class TelaAlterarST extends javax.swing.JFrame {
             return false;
         }
         
-        if(this.jTextTelefone.getText().equals("")){
-            return false;
-        }
+//        if(this.jTextTelefone.getText().equals("")){
+//            return false;
+//        }
         
         if(this.jTextEndNum.getText().equals("")){
         
@@ -481,6 +533,8 @@ public class TelaAlterarST extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelCategoria;
+    private javax.swing.JList<String> jListCategoria;
     private javax.swing.JTextField jTextCpf;
     private javax.swing.JTextField jTextEmail;
     private javax.swing.JTextField jTextEndCidade;

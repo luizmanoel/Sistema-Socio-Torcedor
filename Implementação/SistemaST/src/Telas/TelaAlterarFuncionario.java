@@ -103,19 +103,19 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
             return false;
         }
         
-        if(this.jTextEmail.equals("")){
-        
-            return false;
-        }
-        
+//        if(this.jTextEmail.equals("")){
+//        
+//            return false;
+//        }
+//        
         if(this.jTextNome.equals("")){
             
             return false;
         }
-        
-        if(this.jTextTelefone.equals("")){
-            return false;
-        }
+//        
+//        if(this.jTextTelefone.equals("")){
+//            return false;
+//        }
         
         
         

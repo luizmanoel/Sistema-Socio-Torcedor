@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import sistemast.Administrador;
 import sistemast.Endereco;
 import sistemast.Funcionario;
 import sistemast.SocioTorcedor;
@@ -13,35 +14,35 @@ import sistemast.SocioTorcedor;
  *
  * @author Luiz Manoel
  */
-public class TelaVerDadosFuncionario extends javax.swing.JFrame {
-    private Funcionario func;
+public class TelaVerDadosAdministrador extends javax.swing.JFrame {
+    private Administrador admin;
     /**
      * Creates new form TelaVerDadosST
      */
-    public TelaVerDadosFuncionario(Funcionario func) {
-        this.func = func;
+    public TelaVerDadosAdministrador(Administrador admin) {
+        this.admin = admin;
         initComponents();
         preenche();
     }
 
-    private TelaVerDadosFuncionario() {
+    private TelaVerDadosAdministrador() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public void preenche(){
-        labelNome.setText(func.getNome());
-        labelCpf.setText(func.getCpf());
-        labelIdade.setText(String.valueOf(func.getIdade()));
-        labelSexo.setText(String.valueOf(func.getSexo()));
+        labelNome.setText(admin.getNome());
+        labelCpf.setText(admin.getCpf());
+        labelIdade.setText(String.valueOf(admin.getIdade()));
+        labelSexo.setText(String.valueOf(admin.getSexo()));
         //labelTelefone.setText(String.valueOf(func.getTelefone()));
         //labelEmail.setText(String.valueOf(func.getEmail()));
         
-        Endereco end = func.getEndereco();
+        Endereco end = admin.getEndereco();
         labelRua.setText(end.getEndRua());
         labelNum.setText(end.getEndNum());
         labelCidade.setText(end.getEndCidade());
         labelEstado.setText(end.getEndEstado());
-        this.jListMail.setListData(func.endEmails());
-        this.jListTel.setListData(func.numerosTelefone());
+        this.jListMail.setListData(admin.endEmails());
+        this.jListTel.setListData(admin.numerosTelefone());
     }
     /**
      * This method is called from within the constructor to initialize the form.

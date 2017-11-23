@@ -2,7 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/dao/CategoriaDAO.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/dao/FuncionarioDAO.java</file>
@@ -11,6 +10,7 @@
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaVerDadosAdministrador.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaAlterarAdmin.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaAdmin.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaRemoveST.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaAlterarEmail.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaCadastroST.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaRemoveCategoria.java</file>
@@ -26,17 +26,5 @@
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaAlterarTelefone.java</file>
             <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/Login.java</file>
         </group>
-=======
-<<<<<<< HEAD
-        <group>
-            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaListaDeSTs.java</file>
-            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/Login.java</file>
-            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/Telas/TelaListaDeAlteracaoSTs.java</file>
-            <file>file:/C:/Users/Luiz%20Manoel/Desktop/Sistema%20LPS/Implementação/SistemaST/src/sistemast/Relatorio.java</file>
-        </group>
-=======
-        <group/>
->>>>>>> 13338d46bb78bc0900fe3eb5ff74d9b1d60c9a4a
->>>>>>> e8574f5a8fc6224d0d7933ea1f31baa7f417f879
     </open-files>
 </project-private>

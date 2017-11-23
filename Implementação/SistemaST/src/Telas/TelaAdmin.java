@@ -51,6 +51,8 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenuPGAlterar = new javax.swing.JMenuItem();
         jMenuPGDeletar = new javax.swing.JMenuItem();
         jMenuItemRelatorioPagamento = new javax.swing.JMenuItem();
+        jMenuItemRelatorioST = new javax.swing.JMenuItem();
+        jMenuItemRelatorioFuncionario = new javax.swing.JMenuItem();
         listarSocio = new javax.swing.JMenu();
         jMenuCategoria = new javax.swing.JMenu();
         jMenuCadastrarCategoria = new javax.swing.JMenuItem();
@@ -139,6 +141,22 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         relatorioFinanceiro.add(jMenuItemRelatorioPagamento);
+
+        jMenuItemRelatorioST.setText("Relatório de Sócios");
+        jMenuItemRelatorioST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatorioSTActionPerformed(evt);
+            }
+        });
+        relatorioFinanceiro.add(jMenuItemRelatorioST);
+
+        jMenuItemRelatorioFuncionario.setText("Relatório de Funcionários");
+        jMenuItemRelatorioFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatorioFuncionarioActionPerformed(evt);
+            }
+        });
+        relatorioFinanceiro.add(jMenuItemRelatorioFuncionario);
 
         jMenuBar1.add(relatorioFinanceiro);
 
@@ -385,6 +403,19 @@ public class TelaAdmin extends javax.swing.JFrame {
         telaAAdm1.setVisible(true);
     }//GEN-LAST:event_jMenuMeusAlterarActionPerformed
 
+    private void jMenuItemRelatorioSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioSTActionPerformed
+        // TODO add your handling code here:
+        TelaRelatorioST telaRST1 = new TelaRelatorioST();
+        telaRST1.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRelatorioSTActionPerformed
+
+    private void jMenuItemRelatorioFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioFuncionarioActionPerformed
+        // TODO add your handling code here:
+        
+        TelaRelatorioFuncionario telaRF1 = new TelaRelatorioFuncionario();
+        telaRF1.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRelatorioFuncionarioActionPerformed
+
     
     
     
@@ -444,7 +475,9 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItemRelatorioFuncionario;
     private javax.swing.JMenuItem jMenuItemRelatorioPagamento;
+    private javax.swing.JMenuItem jMenuItemRelatorioST;
     private javax.swing.JMenuItem jMenuItemRemoverCategoria;
     private javax.swing.JMenuItem jMenuItemRemoverST;
     private javax.swing.JMenuItem jMenuMeusAlterar;

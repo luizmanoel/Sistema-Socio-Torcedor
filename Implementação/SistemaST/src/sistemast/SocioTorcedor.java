@@ -162,5 +162,23 @@ public class SocioTorcedor extends Pessoa {
     
     
     }
+    
+    public boolean aplicaFiltroData(String filtroData){
+            if(filtroData.equals("")){//Nada foi passado
+                return true;
+            
+            
+            }else if(filtroData.equals(String.valueOf(this.getIdade()))){//Data confere
+            
+                return true;
+            }
+            
+            return false;//Se tudo falhar
+            
+            
+    
+    
+    
+    }
 
 }

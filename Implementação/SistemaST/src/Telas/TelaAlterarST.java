@@ -358,10 +358,12 @@ public class TelaAlterarST extends javax.swing.JFrame {
         jComboIdade.setSelectedIndex(getSt().getIdade());
         //jTextTelefone.setText(getSt().getTelefone());//.get(0).getNumero()
         
+        //System.out.println(getSt().getEndereco().getEndNum());
         this.jTextEndNum.setText(getSt().getEndereco().getEndNum());
         this.jTextEndRua.setText(getSt().getEndereco().getEndRua());
         this.jTextEndCidade.setText(getSt().getEndereco().getEndCidade());
         this.jTextEndEstado.setText(getSt().getEndereco().getEndEstado());//Email, Telefone X
+        
         
         
         if(getSt().getSexo() == 'F'){

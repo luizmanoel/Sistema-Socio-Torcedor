@@ -86,7 +86,7 @@ public class Relatorio {
         this.Responsavel = Responsavel;
     }
     
-    public void gerarRelatorioFuncionario(ArrayList<Funcionario> listaFunc){//FIltros em parametros
+    public void gerarRelatorioFunc(ArrayList<Funcionario> listaFunc){//FIltros em parametros
         Paragraph conteudo = new Paragraph("Id do Relatório: " + this.getIdRelatorio());
         this.document.add(conteudo);
         
@@ -155,6 +155,11 @@ public class Relatorio {
         
         Table table = new Table(4);//8 Colunas
         
+        table.addCell(new Paragraph("Data"));
+        table.addCell(new Paragraph("Detalhes"));
+        table.addCell(new Paragraph(String.valueOf("Código do Sócio")));
+        table.addCell(new Paragraph(String.valueOf("Valor")));
+        
         for(int i = 0; i < listaPgto.size(); i++){
             
             //String[] dadosST = listaPgto.get(i).toStringDataArray();
@@ -168,8 +173,88 @@ public class Relatorio {
         }
         document.add(table);
         try{
+            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);
             Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
-            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
+            //JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
+        }catch(Exception e){
+        
+        
+        }
+        this.fecharRel();
+    
+    
+    
+    }
+    
+    public void gerarRelatorioSocioTorcedor(ArrayList<SocioTorcedor> listaST){//FIltros em parametros
+        Paragraph conteudo = new Paragraph("Id do Relatório: " + this.getIdRelatorio());
+        this.document.add(conteudo);
+        
+        conteudo = new Paragraph("Relatório de Sócios");
+        
+        Table table = new Table(4);//8 Colunas
+        
+        table.addCell(new Paragraph("Nome"));
+        table.addCell(new Paragraph("CPF"));
+        table.addCell(new Paragraph(String.valueOf("Idade")));
+        table.addCell(new Paragraph(String.valueOf("Sexo")));
+        
+        for(int i = 0; i < listaST.size(); i++){
+            
+            //String[] dadosST = listaPgto.get(i).toStringDataArray();
+            
+            table.addCell(new Paragraph(listaST.get(i).getNome()));
+            table.addCell(new Paragraph(listaST.get(i).getCpf()));
+            table.addCell(new Paragraph(String.valueOf(listaST.get(i).getIdade())));
+            table.addCell(new Paragraph(String.valueOf(listaST.get(i).getSexo())));
+            
+        
+        }
+        document.add(table);
+        try{
+            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);
+            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
+            //JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
+        }catch(Exception e){
+        
+        
+        }
+        this.fecharRel();
+    
+    
+    
+    }
+    
+    public void gerarRelatorioFuncionario(ArrayList<Funcionario> listaFunc){//FIltros em parametros
+        Paragraph conteudo = new Paragraph("Id do Relatório: " + this.getIdRelatorio());
+        this.document.add(conteudo);
+        
+        conteudo = new Paragraph("Relatório de Funcionários");
+        
+        Table table = new Table(5);//8 Colunas
+        
+        table.addCell(new Paragraph("Nome"));
+        table.addCell(new Paragraph("CPF"));
+        table.addCell(new Paragraph(String.valueOf("Idade")));
+        table.addCell(new Paragraph(String.valueOf("Sexo")));
+        table.addCell(new Paragraph(String.valueOf("Cargo")));
+        
+        for(int i = 0; i < listaFunc.size(); i++){
+            
+            //String[] dadosST = listaPgto.get(i).toStringDataArray();
+            
+            table.addCell(new Paragraph(listaFunc.get(i).getNome()));
+            table.addCell(new Paragraph(listaFunc.get(i).getCpf()));
+            table.addCell(new Paragraph(String.valueOf(listaFunc.get(i).getIdade())));
+            table.addCell(new Paragraph(String.valueOf(listaFunc.get(i).getSexo())));
+            table.addCell(new Paragraph(String.valueOf(listaFunc.get(i).getCargo())));
+        
+        }
+        document.add(table);
+        try{
+            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);
+            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
+            //JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
         }catch(Exception e){
         
         

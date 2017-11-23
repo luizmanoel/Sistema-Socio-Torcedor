@@ -71,7 +71,7 @@ public class SocioTorcedor extends Pessoa {
     
     public String[] endEmails(){
         String[] enderecos = new String[this.getEmail().size()];
-        for(int i = 0; i < this.getTelefone().size(); i++){
+        for(int i = 0; i < this.getEmail().size(); i++){
             enderecos[i] = this.getEmail().get(i).getEndereco();
         
         

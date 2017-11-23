@@ -129,13 +129,13 @@ public class TelaCadastroCategoria extends javax.swing.JFrame {
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         // TODO add your handling code here:
-        this.criaPagamento();
+        this.criaCategoria();
         this.dispose();
         
         
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
-    public void criaPagamento(){
+    public void criaCategoria(){
         Categoria novacat = new Categoria();
         
         

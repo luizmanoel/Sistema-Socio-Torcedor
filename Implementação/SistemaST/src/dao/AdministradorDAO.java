@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sistemast.Administrador;
+import sistemast.Email;
 import sistemast.Endereco;
+import sistemast.Telefone;
 
 /**
  *
@@ -82,6 +84,47 @@ public class AdministradorDAO implements InterfaceDAO{
             
             statement.execute();
             */
+            
+            //Adaptados
+            for(int i = 0; i < administrador.getEmail().size(); i++){//Dentro de loop, para pegar todos os cadastrados
+                sql = "Insert into Email (email, cod_email) values (?, ?)";
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, administrador.getEmail().get(i).getEndereco());//End do email
+                statement.setString(2, String.valueOf(administrador.getEmail().get(i).getCodEmail()));//Cod do email
+
+                statement.execute();
+            }
+            
+            //Pessoa_Email
+            for(int i = 0; i < administrador.getEmail().size(); i++){
+                sql = "Insert into Pessoa_Email (Pessoa_idPessoa, Email_cod_email) values(?, ?)";//Relaciona duas tabelas
+
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, String.valueOf(administrador.getId()));
+                statement.setString(2, String.valueOf(administrador.getEmail().get(i).getCodEmail()));
+
+                statement.execute();
+            }
+            
+            for(int i = 0; i < administrador.getTelefone().size(); i++){
+                sql = "Insert into Telefone (telefone, cod_tel) values (?, ?)";//Numtel e codigo do tel
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, administrador.getTelefone().get(i).getNumero());
+                statement.setString(2, String.valueOf(administrador.getTelefone().get(i).getCodTelefone()));
+
+                statement.execute();
+            }
+            
+            //Pessoa_Email
+            for(int i = 0; i < administrador.getTelefone().size(); i++){
+                sql = "Insert into Pessoa_Telefone (Pessoa_idPessoa, Telefone_cod_tel) values(?, ?)";//Relaciona duas tabelas
+
+                statement = conn.prepareStatement(sql);
+                statement.setString(1, String.valueOf(administrador.getId()));
+                statement.setString(2, String.valueOf(administrador.getTelefone().get(i).getCodTelefone()));
+
+                statement.execute();
+            }
             
             
             Conexao.closeConn();
@@ -294,6 +337,58 @@ public class AdministradorDAO implements InterfaceDAO{
                 administrador2.setSenha(result.getNString("senha"));
                 administrador2.setCodigoAdministrador(result.getInt("cod_adm"));
                 administrador2.setSalario(result.getDouble("salario"));
+                
+                
+                sql = "SELECT Email.email, Email.cod_email, Pessoa_Email.Pessoa_idPessoa FROM Pessoa_Email INNER JOIN Email ON Pessoa_Email.Email_cod_email = Email.cod_email WHERE Pessoa_Email.Pessoa_idPessoa = ?";//Pegar
+                
+                
+                ResultSet rmail;
+                statement = conn.prepareStatement(sql);//Usa statement la de cima
+                statement.setString(1, String.valueOf(administrador2.getId()));
+                rmail = statement.executeQuery();
+                
+                ArrayList <Email> listMail = new ArrayList<Email>();
+                
+                while(rmail.next()){//Todos da Query
+                    Email tempmail = new Email();
+                    tempmail.setCodEmail(rmail.getInt("cod_email"));//Cod email
+                    tempmail.setEndereco(rmail.getString("email"));//Endereco email
+                    
+                    //Agora, adicionamos ao funcionario
+                    listMail.add(tempmail);
+                    
+                    
+                
+                
+                
+                }
+                administrador2.setEmail(listMail);
+                
+                
+                sql = "SELECT Telefone.telefone, Telefone.cod_tel, Pessoa_Telefone.Pessoa_idPessoa FROM Pessoa_Telefone INNER JOIN Telefone ON Pessoa_Telefone.Telefone_cod_tel = Telefone.cod_tel WHERE Pessoa_Telefone.Pessoa_idPessoa = ?";//Pegar
+                
+                ResultSet rfone;
+                statement = conn.prepareStatement(sql);//Usa statement la de cima
+                statement.setString(1, String.valueOf(administrador2.getId()));
+                rfone = statement.executeQuery();
+                
+                ArrayList <Telefone> listTel = new ArrayList<Telefone>();
+                
+                while(rfone.next()){//Todos da Query
+                    Telefone temptel = new Telefone();
+                    temptel.setCodTelefone(rfone.getInt("cod_tel"));//Cod //CONSERTO//Adicionar ambos o codigo e o numero sera util para o update
+                    temptel.setNumero(rfone.getString("telefone"));//Telefone
+                    
+                    //Agora, adicionamos ao funcionario
+                    listTel.add(temptel);
+                
+                
+                
+                }
+                administrador2.setTelefone(listTel);
+                
+                
+                
                 
                 
                 

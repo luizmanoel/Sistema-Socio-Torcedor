@@ -41,6 +41,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MeusDados = new javax.swing.JMenuItem();
+        jMenuItemAlterarMeusDados = new javax.swing.JMenuItem();
         relatorioFinanceiro = new javax.swing.JMenu();
         jMenuPagamento = new javax.swing.JMenu();
         jMenuPGListar = new javax.swing.JMenuItem();
@@ -53,6 +54,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenuRemoveS = new javax.swing.JMenuItem();
         jMenuAlterarDados = new javax.swing.JMenuItem();
         jMenuDelegarCargos = new javax.swing.JMenuItem();
+        jMenuCategoria = new javax.swing.JMenu();
+        jMenuCadastrarCategoria = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -63,7 +66,20 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jMenu1.setText("Inicio");
 
         MeusDados.setText("Meus Dados");
+        MeusDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MeusDadosActionPerformed(evt);
+            }
+        });
         jMenu1.add(MeusDados);
+
+        jMenuItemAlterarMeusDados.setText("Alterar Meus Dados");
+        jMenuItemAlterarMeusDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAlterarMeusDadosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemAlterarMeusDados);
 
         jMenuBar1.add(jMenu1);
 
@@ -149,6 +165,18 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
         listarSocio.add(jMenuDelegarCargos);
+
+        jMenuCategoria.setText("Categoria");
+
+        jMenuCadastrarCategoria.setText("Cadastrar");
+        jMenuCadastrarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCadastrarCategoriaActionPerformed(evt);
+            }
+        });
+        jMenuCategoria.add(jMenuCadastrarCategoria);
+
+        listarSocio.add(jMenuCategoria);
 
         jMenuBar1.add(listarSocio);
 
@@ -252,6 +280,24 @@ public class TelaFuncionario extends javax.swing.JFrame {
         TelaListaPagamento listaPag = new TelaListaPagamento();
         listaPag.setVisible(true);
     }//GEN-LAST:event_jMenuPGListarActionPerformed
+
+    private void MeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeusDadosActionPerformed
+        // TODO add your handling code here:
+        TelaVerDadosFuncionario telaD1 = new TelaVerDadosFuncionario(this.meufuncionario);
+        telaD1.setVisible(true);
+    }//GEN-LAST:event_MeusDadosActionPerformed
+
+    private void jMenuItemAlterarMeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlterarMeusDadosActionPerformed
+        // TODO add your handling code here:
+        TelaAlterarFuncionario telaA1 = new TelaAlterarFuncionario(this.meufuncionario);
+        telaA1.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAlterarMeusDadosActionPerformed
+
+    private void jMenuCadastrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastrarCategoriaActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroCategoria cadastraCat = new TelaCadastroCategoria();
+        cadastraCat.setVisible(true);
+    }//GEN-LAST:event_jMenuCadastrarCategoriaActionPerformed
     
     
     
@@ -302,8 +348,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuAlterarDados;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuCadastrarCategoria;
+    private javax.swing.JMenu jMenuCategoria;
     private javax.swing.JMenuItem jMenuDelegarCargos;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItemAlterarMeusDados;
     private javax.swing.JMenuItem jMenuListaS;
     private javax.swing.JMenuItem jMenuPGAlterar;
     private javax.swing.JMenuItem jMenuPGDeletar;

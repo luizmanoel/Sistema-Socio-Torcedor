@@ -75,6 +75,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenu1.setText("Inicio");
 
         MeusDados.setText("Meus Dados");
+        MeusDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MeusDadosActionPerformed(evt);
+            }
+        });
         jMenu1.add(MeusDados);
 
         jMenuBar1.add(jMenu1);
@@ -343,6 +348,12 @@ public class TelaAdmin extends javax.swing.JFrame {
         TelaRelatorioPagamento relatorio = new TelaRelatorioPagamento();
         relatorio.setVisible(true);
     }//GEN-LAST:event_jMenuItemRelatorioPagamentoActionPerformed
+
+    private void MeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeusDadosActionPerformed
+        // TODO add your handling code here:
+        TelaVerDadosAdministrador telaAdm1 = new TelaVerDadosAdministrador(this.meuadmin);
+        telaAdm1.setVisible(true);
+    }//GEN-LAST:event_MeusDadosActionPerformed
 
     
     

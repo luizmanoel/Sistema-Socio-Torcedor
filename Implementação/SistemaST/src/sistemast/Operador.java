@@ -98,30 +98,40 @@ public class Operador extends Pessoa {
     }
     
     public String[] numerosTelefone(){
-        String[] vetNumeros = new String[this.getTelefone().size()];
+        String[] vetNumeros = new String[1];
+        
+        if(this.getTelefone().size() > 0){
+        vetNumeros = new String[this.getTelefone().size()];
         for(int i = 0; i < this.getTelefone().size(); i++){
+            //System.out.println(i);
+            //System.out.println(this.getTelefone().get(i).getNumero());
             vetNumeros[i] = this.getTelefone().get(i).getNumero();
+            
         
-        
+            }
         }
-    
         return vetNumeros;
     
     
     }
     
     public String[] endEmails(){
-        String[] enderecos = new String[this.getEmail().size()];
-        for(int i = 0; i < this.getTelefone().size(); i++){
-            enderecos[i] = this.getEmail().get(i).getEndereco();
-        
-        
+        String[] enderecos = new String[1];
+        if(this.getEmail().size() > 0){
+            enderecos = new String[this.getEmail().size()];
+            for(int i = 0; i < this.getEmail().size(); i++){
+                //System.out.println(i);
+                //System.out.println(this.getEmail().get(i).getEndereco());
+                enderecos[i] = this.getEmail().get(i).getEndereco();
+                
+
+
+            }
+
+            return enderecos;
         }
     
         return enderecos;
-    
-    
-    
     
     }
     

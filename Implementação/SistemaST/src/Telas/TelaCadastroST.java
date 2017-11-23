@@ -81,6 +81,7 @@ public class TelaCadastroST extends javax.swing.JFrame {
         jTextCodMail = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListCategoria = new javax.swing.JList<>();
+        jLabel11 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -147,10 +148,22 @@ public class TelaCadastroST extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jListCategoria);
 
+        jLabel11.setText("Categoria");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextCodMail)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,8 +206,10 @@ public class TelaCadastroST extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(28, 28, 28)
-                        .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,6 +251,8 @@ public class TelaCadastroST extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextCodMail)))
                 .addContainerGap())
+=======
+>>>>>>> 13338d46bb78bc0900fe3eb5ff74d9b1d60c9a4a
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,9 +309,17 @@ public class TelaCadastroST extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+=======
+                .addGap(50, 50, 50)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+>>>>>>> 13338d46bb78bc0900fe3eb5ff74d9b1d60c9a4a
                 .addComponent(jBtEnviar)
                 .addGap(141, 141, 141))
         );
@@ -435,6 +460,11 @@ public class TelaCadastroST extends javax.swing.JFrame {
             return false;
         }
         
+        if(this.jListCategoria.isSelectionEmpty()){//Sem categoria selecionada
+            return false;
+        
+        }
+        
         if(this.jTextEmail.getText().equals("")){
         
             return false;
@@ -522,6 +552,7 @@ public class TelaCadastroST extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

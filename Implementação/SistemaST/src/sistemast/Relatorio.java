@@ -27,6 +27,7 @@ public class Relatorio {
     private String data;
     private String Responsavel;
     
+    
     private PdfWriter writer;
     private PdfDocument pdf;
     private Document document;
@@ -104,8 +105,9 @@ public class Relatorio {
         }
         document.add(table);
         try{
-            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
             JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
+            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
+            
         }catch(Exception e){
         
         
@@ -134,8 +136,10 @@ public class Relatorio {
         }
         document.add(table);
         try{
-            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
             JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 2);//Confirmar que gerou
+            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
+            
+            
         }catch(Exception e){
         
         
@@ -168,8 +172,9 @@ public class Relatorio {
         }
         document.add(table);
         try{
-            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
             JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
+            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
+            
         }catch(Exception e){
         
         
@@ -181,7 +186,7 @@ public class Relatorio {
     }
     
     
-    public void fecharRel(){
+    public void fecharRel(){ 
         this.document.close();
         this.pdf.close();
         try{

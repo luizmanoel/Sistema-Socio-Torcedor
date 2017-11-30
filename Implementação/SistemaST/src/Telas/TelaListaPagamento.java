@@ -21,6 +21,7 @@ public class TelaListaPagamento extends javax.swing.JFrame {
      */
     public TelaListaPagamento() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preencher();
     }
     

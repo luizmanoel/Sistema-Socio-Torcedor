@@ -22,11 +22,14 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
      * Creates new form TelaCadastroFuncionario
      */
     public TelaCadastroFuncionario() {
+        
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public TelaCadastroFuncionario(Funcionario func){
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

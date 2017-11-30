@@ -25,6 +25,7 @@ public class TelaRemovePagamento extends javax.swing.JFrame {
     public TelaRemovePagamento() {
 
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

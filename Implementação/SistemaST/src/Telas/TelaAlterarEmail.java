@@ -22,6 +22,7 @@ public class TelaAlterarEmail extends javax.swing.JFrame {
      */
     public TelaAlterarEmail(ArrayList<Email> emailAlt) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.emailAlt = emailAlt;
         configTabela();
         //Implementar p/ alterar e salvar

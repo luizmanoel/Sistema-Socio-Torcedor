@@ -21,6 +21,7 @@ public class TelaVerDadosFuncionario extends javax.swing.JFrame {
     public TelaVerDadosFuncionario(Funcionario func) {
         this.func = func;
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

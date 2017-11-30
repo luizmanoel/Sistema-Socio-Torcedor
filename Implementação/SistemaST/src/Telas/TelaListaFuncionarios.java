@@ -21,6 +21,7 @@ public class TelaListaFuncionarios extends javax.swing.JFrame {
      */
     public TelaListaFuncionarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

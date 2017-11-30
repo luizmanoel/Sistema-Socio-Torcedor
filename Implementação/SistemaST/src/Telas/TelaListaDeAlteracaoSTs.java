@@ -21,6 +21,7 @@ public class TelaListaDeAlteracaoSTs extends javax.swing.JFrame {
      */
     public TelaListaDeAlteracaoSTs() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

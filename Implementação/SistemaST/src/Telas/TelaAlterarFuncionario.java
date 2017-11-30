@@ -25,6 +25,7 @@ public class TelaAlterarFuncionario extends javax.swing.JFrame {
     public TelaAlterarFuncionario() {
         
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

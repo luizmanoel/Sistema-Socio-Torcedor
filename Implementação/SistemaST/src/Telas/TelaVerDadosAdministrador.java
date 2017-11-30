@@ -22,6 +22,7 @@ public class TelaVerDadosAdministrador extends javax.swing.JFrame {
     public TelaVerDadosAdministrador(Administrador admin) {
         this.admin = admin;
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

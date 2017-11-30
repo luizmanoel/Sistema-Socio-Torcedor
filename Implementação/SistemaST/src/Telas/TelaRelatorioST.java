@@ -26,6 +26,7 @@ public class TelaRelatorioST extends javax.swing.JFrame {
     
     public TelaRelatorioST() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public void criaRelatorio(){

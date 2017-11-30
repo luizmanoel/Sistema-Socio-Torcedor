@@ -24,7 +24,9 @@ public class TelaCadastroCategoria extends javax.swing.JFrame {
      * Creates new form TelaCadastroPagamento
      */
     public TelaCadastroCategoria() {
+        
         initComponents();
+        this.setLocationRelativeTo(null);
         
     }
     

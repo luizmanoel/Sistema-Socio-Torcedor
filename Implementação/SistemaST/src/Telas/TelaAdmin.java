@@ -27,6 +27,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         this.meuadmin = meuadmin;
         //this.meuadmin = meuadmin;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

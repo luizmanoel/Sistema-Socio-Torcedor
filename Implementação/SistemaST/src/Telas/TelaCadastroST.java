@@ -29,6 +29,7 @@ public class TelaCadastroST extends javax.swing.JFrame {
      */
     public TelaCadastroST() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public TelaCadastroST(SocioTorcedor st) {
@@ -355,7 +356,7 @@ public class TelaCadastroST extends javax.swing.JFrame {
     public void incluirST(){
         SocioTorcedor st = new SocioTorcedor();//Melhor fazer assim ?
         
-        System.out.println(this.jTextNome.getText());
+        //System.out.println(this.jTextNome.getText());//Para Testes
         st.setNome(jTextNome.getText());
         st.setCodigoSt(Integer.parseInt(jTextCod.getText()));
         st.setCpf(jTextCpf.getText());

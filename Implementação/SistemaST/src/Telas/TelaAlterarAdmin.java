@@ -42,7 +42,10 @@ public class TelaAlterarAdmin extends javax.swing.JFrame {
         jTextCpf.setText(getAdm().getCpf());
         
         //jTextEmail.setText(getFunc().getEmail());//Correção, possível exibição de todos?
-        
+        jTextEndCidade.setText(getAdm().getEndereco().getEndCidade());
+        jTextEndEstado.setText(getAdm().getEndereco().getEndEstado());
+        jTextEndNum.setText(getAdm().getEndereco().getEndNum());
+        jTextEndRua.setText(getAdm().getEndereco().getEndRua());
         jComboIdade.setSelectedIndex(adm.getIdade());      
         if(adm.getSexo() == 'F'){
             jComboSexo.setSelectedIndex(0);

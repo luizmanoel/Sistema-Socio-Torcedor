@@ -27,7 +27,6 @@ public class Relatorio {
     private String data;
     private String Responsavel;
     
-    
     private PdfWriter writer;
     private PdfDocument pdf;
     private Document document;
@@ -105,9 +104,8 @@ public class Relatorio {
         }
         document.add(table);
         try{
-            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
             Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
-            
+            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 1);//Confirmar que gerou
         }catch(Exception e){
         
         
@@ -136,10 +134,8 @@ public class Relatorio {
         }
         document.add(table);
         try{
-            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 2);//Confirmar que gerou
             Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
-            
-            
+            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 2);//Confirmar que gerou
         }catch(Exception e){
         
         
@@ -177,11 +173,6 @@ public class Relatorio {
         }
         document.add(table);
         try{
-<<<<<<< HEAD
-            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
-            Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
-            
-=======
             JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);
             Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
             //JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
@@ -264,7 +255,6 @@ public class Relatorio {
             JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);
             Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
             //JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
->>>>>>> 321b6285fa686bd5644541284efec0382b7b64ca
         }catch(Exception e){
         
         
@@ -276,7 +266,7 @@ public class Relatorio {
     }
     
     
-    public void fecharRel(){ 
+    public void fecharRel(){
         this.document.close();
         this.pdf.close();
         try{

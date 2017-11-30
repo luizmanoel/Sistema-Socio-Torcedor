@@ -58,10 +58,6 @@ public class TelaRelatorioFuncionario extends javax.swing.JFrame {
         
         rel.gerarRelatorioFuncionario(listaFunc);
         
-        
-    
-    
-    
     }
     
     
@@ -94,7 +90,7 @@ public class TelaRelatorioFuncionario extends javax.swing.JFrame {
 
         jLabel1.setText("ID do Relatório");
 
-        jLabel2.setText("Filtro de Data");
+        jLabel2.setText("Filtro de idade");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

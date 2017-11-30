@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaListaDeAlteracaoSTsTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaAlterarTelefoneTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/src/Telas/TelaCadastroFuncionario.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaListaDeSTsTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaListaPagamentoTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaCadastroPagamentoTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaListaFuncionariosTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/LoginTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaCadastroCategoriaTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaCadastroSTTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaCadastroFuncionarioTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaListaDeAlteracaoFuncionariosTest.java</file>
+            <file>file:/home/antonio/SistemaST/sistema-socio-torcedor/Implementação/SistemaST/test/Telas/TelaListaDeAlteracaoPagamentoTest.java</file>
+        </group>
     </open-files>
 </project-private>

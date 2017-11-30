@@ -41,6 +41,7 @@ public class TelaAlterarST extends javax.swing.JFrame {
      * Creates new form TelaAlterarST
      */
     public TelaAlterarST() {
+        this.setLocationRelativeTo(null);
         initComponents();
     }
     public TelaAlterarST(SocioTorcedor st) {//Chamada apos usr selecionar quem vai alterar

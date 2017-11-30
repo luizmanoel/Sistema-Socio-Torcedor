@@ -23,6 +23,7 @@ public class TelaListaDeAlteracaoPagamento extends javax.swing.JFrame {
      */
     public TelaListaDeAlteracaoPagamento() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

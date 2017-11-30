@@ -21,6 +21,7 @@ public class TelaListaDeAlteracaoFuncionarios extends javax.swing.JFrame {
      */
     public TelaListaDeAlteracaoFuncionarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

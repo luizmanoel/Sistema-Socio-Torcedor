@@ -23,6 +23,7 @@ public class TelaRemoveST extends javax.swing.JFrame {
     public TelaRemoveST() {
 
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

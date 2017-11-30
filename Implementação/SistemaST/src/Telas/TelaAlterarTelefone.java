@@ -21,6 +21,7 @@ public class TelaAlterarTelefone extends javax.swing.JFrame {
      */
     public TelaAlterarTelefone(ArrayList<Telefone> telAlt) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.telAlt = telAlt;
     }
     

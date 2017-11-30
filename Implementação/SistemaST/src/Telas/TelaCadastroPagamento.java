@@ -23,6 +23,7 @@ public class TelaCadastroPagamento extends javax.swing.JFrame {
      */
     public TelaCadastroPagamento() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

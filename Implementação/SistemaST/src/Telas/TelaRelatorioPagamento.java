@@ -26,6 +26,7 @@ public class TelaRelatorioPagamento extends javax.swing.JFrame {
     
     public TelaRelatorioPagamento() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

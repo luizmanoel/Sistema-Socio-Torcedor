@@ -25,6 +25,7 @@ public class TelaRemoveFuncionario extends javax.swing.JFrame {
     public TelaRemoveFuncionario() {
 
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

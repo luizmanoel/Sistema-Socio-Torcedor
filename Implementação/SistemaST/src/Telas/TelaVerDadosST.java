@@ -20,6 +20,7 @@ public class TelaVerDadosST extends javax.swing.JFrame {
     public TelaVerDadosST(SocioTorcedor st) {
         this.st = st;
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

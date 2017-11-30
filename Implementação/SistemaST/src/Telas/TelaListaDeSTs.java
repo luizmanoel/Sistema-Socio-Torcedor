@@ -21,6 +21,7 @@ public class TelaListaDeSTs extends javax.swing.JFrame {
      */
     public TelaListaDeSTs() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
     

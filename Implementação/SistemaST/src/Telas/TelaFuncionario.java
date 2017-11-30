@@ -26,6 +26,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
     public TelaFuncionario(Funcionario meufuncionario) {
         this.meufuncionario = meufuncionario;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

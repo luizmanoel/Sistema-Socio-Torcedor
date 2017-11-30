@@ -84,7 +84,11 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Filtro de idade"/>
+=======
+        <Property name="text" type="java.lang.String" value="Filtro de Idade"/>
+>>>>>>> 81434f5c1a9bdcf4368f7bf8f912a8171c4143ac
       </Properties>
     </Component>
   </SubComponents>

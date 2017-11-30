@@ -26,6 +26,7 @@ public class TelaRemoveCategoria extends javax.swing.JFrame {
      */
     public TelaRemoveCategoria() {
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
         
     }

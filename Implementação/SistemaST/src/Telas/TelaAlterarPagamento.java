@@ -27,6 +27,7 @@ public class TelaAlterarPagamento extends javax.swing.JFrame {
     public TelaAlterarPagamento() {
         
         initComponents();
+        this.setLocationRelativeTo(null);
         preenche();
     }
 

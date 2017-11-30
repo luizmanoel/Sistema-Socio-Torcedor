@@ -105,7 +105,7 @@ public class Relatorio {
         document.add(table);
         try{
             Desktop.getDesktop().open(new File("Relatorio.pdf"));//Abre
-            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 0);//Confirmar que gerou
+            JOptionPane.showMessageDialog(null, "Relatório aberto pelo aplicativo padrão", "Gerado", 1);//Confirmar que gerou
         }catch(Exception e){
         
         

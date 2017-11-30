@@ -6,19 +6,27 @@
 package sistemast;
 
 import java.util.ArrayList;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
+<<<<<<< HEAD
+ * @author Luiz Manoel
+=======
  * @author antonio
+>>>>>>> 81434f5c1a9bdcf4368f7bf8f912a8171c4143ac
  */
 public class FuncionarioTest {
     
     public FuncionarioTest() {
     }
 
-    
+    /**
+     * Test of getCargo method, of class Funcionario.
+     */
+   
 
     /**
      * Test of toStringDataArray method, of class Funcionario.
@@ -27,6 +35,8 @@ public class FuncionarioTest {
     public void testToStringDataArray() {
         System.out.println("toStringDataArray");
         Funcionario instance = new Funcionario();
+        String[] expResult = null;
+
         instance.setId(0);
         instance.setNome("Irineu");
         instance.setCargo("Cargo");
@@ -51,7 +61,8 @@ public class FuncionarioTest {
         listaT.add(tel);
         
         instance.setTelefone(listaT);
-        String[] expResult = {"Irineu", "Cargo", "000", "M", "0", "aaa\n", "000\n", "0", "0.0"};
+        //expResult = {"Irineu", "Cargo", "000", "M", "0", "aaa\n", "000\n", "0", "0.0"};
+
         String[] result = instance.toStringDataArray();
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -66,7 +77,9 @@ public class FuncionarioTest {
         System.out.println("aplicaFiltroData");
         String filtroData = "";
         Funcionario instance = new Funcionario();
+
         boolean expResult = true;
+
         boolean result = instance.aplicaFiltroData(filtroData);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

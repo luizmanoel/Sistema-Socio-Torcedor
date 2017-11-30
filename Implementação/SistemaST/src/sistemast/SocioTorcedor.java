@@ -142,7 +142,7 @@ public class SocioTorcedor extends Pessoa {
     public String telefoneStringify(){
         
         String telefones = "";
-        for(int i = 0; i < this.getEmail().size(); i++){
+        for(int i = 0; i < this.getTelefone().size(); i++){
             telefones = telefones + this.getTelefone().get(i).getNumero()+ "\n";
         
         

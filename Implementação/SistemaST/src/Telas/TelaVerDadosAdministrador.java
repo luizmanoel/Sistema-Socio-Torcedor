@@ -26,9 +26,7 @@ public class TelaVerDadosAdministrador extends javax.swing.JFrame {
         preenche();
     }
 
-    private TelaVerDadosAdministrador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
     public void preenche(){
         labelNome.setText(admin.getNome());
         labelCpf.setText(admin.getCpf());
@@ -190,14 +188,13 @@ public class TelaVerDadosAdministrador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(77, 77, 77)
+                                .addComponent(labelCpf))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelEstado))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(66, 66, 66))
-                                .addComponent(labelCpf))
                             .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
